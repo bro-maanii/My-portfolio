@@ -14,8 +14,8 @@ function page() {
               MY PORTFOLIO
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-              Hello and welcome to my portfolio! I'm a <strong> web
-              developer</strong>, and I'm thrilled to share some handpicked collection of
+              Hello and welcome to my portfolio! I&apos;m a <strong> web
+              developer</strong>, and I&apos;m thrilled to share some handpicked collection of
               my impressive projects with you. These projects highlight my
               skills in crafting creative solutions using <strong>web
               technologies</strong>. Feel free to explore and learn more about my work.
