@@ -17,11 +17,11 @@ function HeroSection() {
 
         {/* Text */}
         <div className=' flex-1'>
-            <p className='lg:text-xl md:text-lg sm:text-xl'>Hi, I'm <strong>EMAN ALI ABBASI</strong></p>
+            <p className='lg:text-xl md:text-lg sm:text-xl'>Hi, I&apos;m <strong>EMAN ALI ABBASI</strong></p>
             {/* type effect */}
             <Typeeffect/>
             {/*  */}
-            <p className='lg:text-lg sm:text-lg md:text-base font-extralight italic py-8'>I'm eager to apply my passion for frontend development and learn the ropes in crafting innovative solutions that utilize the latest technologies to create impactful outcomes.</p>
+            <p className='lg:text-lg sm:text-lg md:text-base font-extralight italic py-8'>I&apos;m eager to apply my passion for frontend development and learn the ropes in crafting innovative solutions that utilize the latest technologies to create impactful outcomes.</p>
             <p className='text-sm font-light py-8'>Let build Together</p>
             {/* download CV button */}
             <a href="/Cv/cv resume.pdf" download={"My-CV"} >

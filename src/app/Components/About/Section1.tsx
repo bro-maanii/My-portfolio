@@ -10,7 +10,7 @@ function Section1() {
       {/* text */}
       <div className="">
         <p className="pb-7 px-2 text-lg font-medium">
-          I'm <strong className="text-xl px-2 font-bold">Eman Ali Abbasi </strong> from Karachi, also known as the City of Light. A
+          I&apos;m <strong className="text-xl px-2 font-bold">Eman Ali Abbasi </strong> from Karachi, also known as the City of Light. A
           Second-year Software Engineering student at the University of
           Karachi -UBIT, I thrive on challenges across diverse domains.
         </p>

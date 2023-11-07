@@ -6,7 +6,7 @@ function Section3() {
     <div>
             <div className='flex flex-col  pb-12'>
                 <h1 className='flex justify-center text-4xl font-bold p-6'>Contact Me</h1>
-                <p className='flex justify-center text-lg opacity-75'>For any questions or inquiries about my Services, Please don't hesitate to reach out to me. I'd be happy to assist you.</p>
+                <p className='flex justify-center text-lg opacity-75'>For any questions or inquiries about my Services, Please don&apos;t hesitate to reach out to me. I&apos;d be happy to assist you.</p>
             </div>
             <div className='flex flex-wrap gap-4 justify-center align-middle pb-12'>
                 <div className='flex flex-1 gap-3 '>
