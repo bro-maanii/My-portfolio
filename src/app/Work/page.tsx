@@ -2,6 +2,7 @@ import React from "react";
 import p2 from "../../../public/projects/work2.png"
 import p1 from "../../../public/projects/work1.png"
 import p3 from "../../../public/projects/work3.png"
+import p4 from "../../../public/projects/work4.png"
 import Project_view from "../Components/Work/Project_view";
 
 function page() {
@@ -27,6 +28,7 @@ function page() {
             <Project_view title="E-commerce Website"  decrption="
 An e-commerce website serves as a virtual marketplace, connecting buyers and sellers online, offering a wide array of products and services, and enabling secure transactions and seamless shopping experiences" img={p2} LiveURL='https://dine-market-sigma-smoky.vercel.app/' codeURL='https://github.com/bro-maanii/DineMarket_Hackathon' />
             <Project_view title="Photography-Web"  decrption="Created a captivating online portfolio for a talented photographer, providing a visually stunning showcase of their work. The website elegantly presents their creativity, helping them leave a lasting impression on clients and enthusiasts alike" img={p1} LiveURL='https://photography-orcin.vercel.app/' codeURL='https://github.com/bro-maanii/Photography-web' />
+            <Project_view title="Shoes Shop"  decrption="An e-commerce Shoes website serves as a virtual marketplace, connecting buyers and sellers online, offering a wide array of products and services, and enabling secure transactions and seamless shopping experiences" img={p4} LiveURL='https://www.youtube.com/watch?v=pQVPVnjIKj4&t=4s' codeURL='https://github.com/bro-maanii/ShoesShop' />
             {/* <Project_view title="Br" project_Name="ds" decrption="Sweater" img={p1}/>
             <Project_view title="Br" project_Name="ds" decrption="Sweater" img={p1}/>
             <Project_view title="Br" project_Name="ds" decrption="Sweater" img={p1}/> */}

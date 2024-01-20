@@ -9,7 +9,7 @@ function Typeeffect() {
         options={
           {strings:[
             "Frontend Web Developer",
-            "Node.js Developer",
+            "Nextjs Developer",
             "Software Engineer"
           ],
           autoStart:true,
