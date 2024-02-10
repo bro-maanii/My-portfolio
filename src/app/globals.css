@@ -80,3 +80,8 @@
 .w-xs {
   width: 10.333333%;
 }
+.myPhotoRotate {
+  transform: rotate(180deg);
+  transition: 0.5s;
+  animation-delay: 0.5s;
+}

@@ -4,7 +4,9 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from "@/components/ui/theme-provider"
 import SideNavbar from './Components/SideNavbar'
 import { Suspense } from 'react'
-import Loading from './loading'
+import Loading from './About/loading'
+import Reveal from '@/components/Reveal'
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,17 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} px-2  py-4`} >
-        
-        
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <SideNavbar/>
             <Suspense fallback={<Loading/>}>
-            <div className='pl-[1%] sm:pl-[4%] pr-[10%] sm:pr-[6%]'>
-              {children}
-            </div>
+              <div className='pl-[1%] sm:pl-[4%] pr-[10%] sm:pr-[6%]'>
+                {children}
+              </div>
             </Suspense>
         </ThemeProvider>
-        
       </body>
     </html>
   )

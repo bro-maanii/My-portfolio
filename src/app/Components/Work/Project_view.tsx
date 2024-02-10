@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function Project_view(props:{title:string,decrption:string,img:StaticImageData,LiveURL:string, codeURL:string}) {
   return (
-    <div className="lg:w-1/3 sm:w-1/2 p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+    <div className="lg:w-1/3 sm:w-1/2 p-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-700">
               <div className="flex relative lg:h-72">
                 <Image
                   alt="gallery"
