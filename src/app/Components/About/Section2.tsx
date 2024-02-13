@@ -12,6 +12,8 @@ import Reveal from "@/components/Reveal";
 import Nextjs from "@/components/ui/icons/Skill_Icons/Nextjs";
 import OpenAI from "@/components/ui/icons/Skill_Icons/OpenAI";
 import Python from "@/components/ui/icons/Skill_Icons/Python";
+import ReduxIcon from "@/components/ui/icons/Skill_Icons/Redux";
+import SanityIcon from "@/components/ui/icons/Skill_Icons/Sanity";
 
 function Section2() {
   return (
@@ -29,6 +31,8 @@ function Section2() {
           <ProgressDemo componentProp={<Tailwind />} Percent={80} />
           <ProgressDemo componentProp={<Nextjs />} Percent={75} />
           <ProgressDemo componentProp={<ReactIcon />} Percent={60} />
+          <ProgressDemo componentProp={<SanityIcon />} Percent={90} />
+          <ProgressDemo componentProp={<ReduxIcon />} Percent={80} />
           <ProgressDemo componentProp={<Python />} Percent={70} />
           <ProgressDemo componentProp={<OpenAI />} Percent={80} />
         </div>

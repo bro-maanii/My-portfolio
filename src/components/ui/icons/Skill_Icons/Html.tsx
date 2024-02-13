@@ -9,6 +9,7 @@ function HtmlIcon() {
       viewBox="0 0 48 48"
       className="w-xs sm:w-14"
     >
+      <title>HTML</title>
       <path fill="#E65100" d="M41 5H7l3 34 14 4 14-4 3-34z"></path>
       <path fill="#FF6D00" d="M24 8v31.9l11.2-3.2L37.7 8z"></path>
       <path

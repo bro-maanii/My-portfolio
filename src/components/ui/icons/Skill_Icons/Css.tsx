@@ -9,6 +9,7 @@ function Css() {
     y="0"
     viewBox="0 0 48 48"
   >
+    <title>CSS</title>
     <path fill="#0277BD" d="M41 5H7l3 34 14 4 14-4 3-34z"></path>
     <path fill="#039BE5" d="M24 8v31.9l11.2-3.2L37.7 8z"></path>
     <path

@@ -9,6 +9,7 @@ function TS() {
       y="0"
       viewBox="0 0 48 48"
     >
+      <title>TypeScript</title>
       <path fill="#1976d2" d="M6 6H42V42H6z"></path>
       <path
         fill="#fff"

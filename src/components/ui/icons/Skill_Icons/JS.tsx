@@ -9,6 +9,7 @@ function JS() {
     y="0"
     viewBox="0 0 48 48"
   >
+    <title>JavaScript</title>
     <path fill="#ffd600" d="M6 42V6h36v36H6z"></path>
     <path
       fill="#000001"
