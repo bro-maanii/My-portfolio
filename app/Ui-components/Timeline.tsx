@@ -9,6 +9,12 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
+    title: "MERN Stack Developer",
+    organization: "SOCByte Private Limited",
+    period: "April 2025 - Present",
+    icon: "/company2.png",
+  },
+  {
     title: "Junior Frontend Developer",
     organization: "TemplateSpace",
     period: "September 2024 - December 2024",
