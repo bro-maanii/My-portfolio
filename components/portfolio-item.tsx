@@ -8,8 +8,8 @@ interface PortfolioItemProps {
     image: string;
     title: string;
     category: string;
-    Codeurl: string;
-    Liveurl: string;
+    Codeurl?: string;
+    Liveurl?: string;
   };
 }
 
@@ -35,25 +35,28 @@ export function PortfolioItem({ item }: PortfolioItemProps) {
         <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
         <p className="text-gray-400">{item.category}</p>
         <div className="flex justify-end gap-3">
-            <Link href={item.Codeurl} target="_blank">
+          {item.Codeurl && (
+            <Link href={item.Codeurl || ""} target="_blank">
             <Button className="px-4 py-2 mt-4 rounded-lg">
                 View code
             </Button>
             </Link>
-            {item.category === "WEB DEV" ?(
-                <Link  href={item.Liveurl} target="_blank">
+            )}
+            {item.Liveurl && (
+            item.category === "WEB DEV" ?(
+                <Link  href={item.Liveurl || ""} target="_blank">
                 <Button className="px-4 py-2 mt-4 rounded-lg">
                     Live 
                 </Button>
                 </Link>
-            ) : (
-                <Link href={item.Liveurl} target="_blank">
+            ): item.Liveurl && (
+                <Link href={item.Liveurl || ""} target="_blank">
                 <Button className="px-4 py-2 mt-4 rounded-lg">
-                    Watch
-                </Button>
-                </Link>
-            )
-            }
+                        Watch
+                    </Button>
+                    </Link>
+                )
+            )}
 
         </div>
       </div>

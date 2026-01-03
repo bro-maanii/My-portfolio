@@ -9,9 +9,9 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <nav className="sticky top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <nav className="sticky top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 overflow-x-hidden max-w-full">
             {/* TODO: take this for all */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <Link
