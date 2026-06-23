@@ -9,8 +9,9 @@ function Typeeffect() {
         options={{
           strings: [
             "Software Engineer",
-            "Frontend Specialist",
-            "React & Next.js Developer"
+            "Full-Stack Developer",
+            "React & Next.js Expert",
+            "MERN Stack Developer",
           ],
           autoStart: true,
           loop: true,

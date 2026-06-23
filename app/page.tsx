@@ -1,11 +1,13 @@
-import AboutSection from "./Ui-components/AboutSection";
-import HeroSection from "./Ui-components/HeroSection";
-import Navbar from "./Ui-components/Navbar";
-import SkillsSection from "./Ui-components/Skills";
+import Navbar          from "./Ui-components/Navbar";
+import HeroSection      from "./Ui-components/HeroSection";
+import AboutSection     from "./Ui-components/AboutSection";
+import WhatIBuild       from "./Ui-components/WhatIBuild";
+import SkillsSection    from "./Ui-components/Skills";
 import ProfessionalTimeline from "./Ui-components/Timeline";
-import Portfolio from "./Ui-components/Work";
-import Contact from "./Ui-components/Contact";
-import Footer from "./Ui-components/Footer";
+import Certifications   from "./Ui-components/Certifications";
+import Portfolio        from "./Ui-components/Work";
+import Contact          from "./Ui-components/Contact";
+import Footer           from "./Ui-components/Footer";
 
 export default function Home() {
   return (
@@ -13,8 +15,10 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <WhatIBuild />
       <SkillsSection />
       <ProfessionalTimeline />
+      <Certifications />
       <Portfolio />
       <Contact />
       <Footer />

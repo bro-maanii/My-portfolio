@@ -1,60 +1,51 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Award, Book, Code2Icon, Layers } from "lucide-react";
+import { Award, BookOpen, Code2, Layers } from "lucide-react";
+
+const icons = [Code2, Layers, Award, BookOpen];
 
 export const HoverEffect = ({
   items,
   className,
 }: {
-  items: {
-    title: string;
-    description: string;
-  }[];
+  items: { title: string; description: string }[];
   className?: string;
 }) => {
   return (
     <>
-      {items.map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          whileHover={{
-            scale: 1.05,
-            rotate: index % 2 === 0 ? -1 : 1,
-            boxShadow: "0px 10px 30px rgba(0,0,0,0.1)"
-          }}
-          className={cn(
-            "group relative p-2 rounded-xl bg-white dark:bg-slate-800",
-            "border border-slate-100 dark:border-slate-700",
-            "transform transition-all duration-300 ease-out",
-            "hover:z-10 hover:border-transparent",
-            className
-          )}
-        >
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-100/50 to-purple-100/50 dark:from-slate-900/80 dark:to-slate-800/80 opacity-0 group-hover:opacity-100 transition-opacity" />
-          
-          <div className="relative z-10">
-            <div className="mb-1 text-3xl text-blue-600 dark:text-blue-400">
-              {index === 0 ? <Code2Icon/> : index === 1 ? <Layers />  : index === 2 ? <Award /> : <Book />}
+      {items.map((item, index) => {
+        const Icon = icons[index % icons.length];
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            whileHover={{ y: -5 }}
+            className={cn(
+              "group relative p-5 rounded-2xl flex flex-col gap-3",
+              "bg-white dark:bg-gray-900/50",
+              "border border-gray-200 dark:border-gray-800",
+              "hover:border-purple-500/50 dark:hover:border-purple-500/50",
+              "transition-all duration-300 shadow-sm hover:shadow-lg",
+              className
+            )}
+          >
+            <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 w-fit">
+              <Icon size={20} />
             </div>
-            <motion.h3
-              className="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-300 bg-clip-text text-transparent"
-              whileHover={{ scale: 1.05 }}
-            >
-              {item.title}
-            </motion.h3>
-            <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+            <h3 className="text-base font-bold leading-snug">{item.title}</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
               {item.description}
             </p>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        );
+      })}
     </>
   );
 };
-
 
 export default HoverEffect;

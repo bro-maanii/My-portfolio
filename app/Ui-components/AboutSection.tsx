@@ -1,73 +1,117 @@
 "use client"
+
+import { motion } from "framer-motion"
 import HoverEffect from "@/components/card-hover-effect"
-import React from "react"
 
-function AboutSection() {
-  return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 overflow-x-hidden" id="about">
-      <h1 className="flex justify-center align-middle text-4xl font-bold py-6 underline sm:py-12">
-        About Me
-      </h1>
+const stats = [
+  { value: "2",   label: "Companies" },
+  { value: "11+", label: "Live Projects" },
+  { value: "15+", label: "Technologies" },
+  { value: "1+",  label: "Years XP" },
+]
 
-      <div className="lg:grid grid-cols-2 sm:gap-4 space-y-11 lg:space-y-0">
-        {/* Text */}
-        <div>
-          <p className="pb-4 px-2 text-lg font-medium leading-relaxed">
-            I&apos;m{" "}
-            <strong className="text-xl px-2 font-bold">
-              Eman Ali Abbasi
-            </strong>
-            , a Software Engineer with hands-on experience in frontend and
-            full-stack web development. I am currently working as a Junior
-            Software Engineer at SOCByte, contributing to real-world,
-            production-grade platforms.
-          </p>
-
-          <p className="pb-4 px-2 text-lg font-medium leading-relaxed">
-            My core expertise lies in building scalable, high-performance web
-            applications using React.js, Next.js, TypeScript, Tailwind CSS, and
-            the MERN stack. I focus strongly on clean UI architecture,
-            performance optimization, and writing maintainable, reusable code.
-          </p>
-
-          <p className="pb-4 px-2 text-lg font-medium leading-relaxed">
-            I have worked on complete product UIs, API integrations, and backend
-            modules, collaborating closely with teams to deliver reliable and
-            efficient solutions. I enjoy solving real engineering problems and
-            continuously improving the quality of the systems I build.
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="grid sm:grid-cols-2 gap-7 mt-0">
-          <HoverEffect items={items} />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const items = [
+const cards = [
   {
-    title: "Production Systems",
+    title: "Sole Frontend Engineer",
     description:
-      "Worked on real-world platforms with complete frontend ownership and backend integration in a professional environment.",
+      "Built a full cybersecurity platform UI with no Figma, no design reference — designed, developed, and shipped to production at SOCByte.",
   },
   {
-    title: "10+ Projects",
+    title: "11 Live Projects",
     description:
-      "Delivered multiple academic and professional projects focused on scalability, UI quality, and real-world use cases.",
+      "Healthcare AI, pharmacy search, photo editing, e-commerce, chatbots — shipped across diverse domains on Vercel and AWS.",
   },
   {
-    title: "Industry Experience",
+    title: "Full-Stack Delivery",
     description:
-      "Hands-on experience working in a collaborative software engineering team building production-ready applications.",
+      "REST APIs, backend modules, and database design across Node.js, FastAPI, and MongoDB/PostgreSQL — not just frontend.",
   },
   {
-    title: "Strong Tech Stack",
+    title: "MERN + Python",
     description:
-      "React.js, Next.js, TypeScript, Tailwind CSS, Node.js, MERN Stack, Git, and modern development workflows.",
+      "React, Next.js, TypeScript, Node.js, FastAPI, Docker, AWS — the complete delivery stack for modern web platforms.",
   },
 ]
 
-export default AboutSection
+export default function AboutSection() {
+  return (
+    <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-x-hidden">
+
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-14"
+      >
+        <h2 className="text-4xl sm:text-5xl font-black mb-4">About Me</h2>
+        <div className="w-14 h-1 bg-purple-500 mx-auto rounded-full" />
+      </motion.div>
+
+      {/* Stats strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.05 }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
+      >
+        {stats.map((s) => (
+          <div
+            key={s.label}
+            className="text-center py-7 px-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/40 hover:border-purple-500/40 transition-colors"
+          >
+            <p className="text-4xl font-black text-purple-500 mb-1">{s.value}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{s.label}</p>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* Two-column: text + hover cards */}
+      <div className="lg:grid grid-cols-2 gap-14 space-y-10 lg:space-y-0">
+
+        {/* Text */}
+        <motion.div
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="space-y-5 text-base sm:text-lg leading-relaxed font-medium"
+        >
+          <p>
+            I&apos;m{" "}
+            <strong>Eman Ali Abbasi</strong> — Software Engineer and
+            Full-Stack Developer. At{" "}
+            <strong>SOCByte</strong>, I&apos;m the sole frontend engineer: I
+            designed and built the entire cybersecurity platform UI from
+            scratch — no Figma, no design reference, no hand-holding — and
+            shipped it to production on schedule.
+          </p>
+          <p>
+            My core stack is React.js, Next.js, TypeScript, and the MERN
+            stack. Beyond the UI, I&apos;ve engineered REST API layers and
+            backend modules for Threat Intelligence, Asset Management, and
+            Reporting — and deployed applications using Docker and AWS.
+          </p>
+          <p className="text-gray-600 dark:text-gray-400">
+            I care about clean architecture, measurable performance, and code
+            the next engineer can read without a map. I build things that work
+            in production — not just demos.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="grid sm:grid-cols-2 gap-5"
+        >
+          <HoverEffect items={cards} />
+        </motion.div>
+
+      </div>
+    </section>
+  )
+}
