@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import ContactForm from "@/components/ContactMe"
-import { FloatingDockDemo } from "@/components/IconContact"
 import { Mail, MapPin, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 
@@ -25,48 +24,39 @@ export default function Contact() {
   return (
     <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-x-hidden">
 
-      {/* Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-14"
-      >
-        <h2 className="text-4xl sm:text-5xl font-black mb-4">
-          Let&apos;s Work Together
-        </h2>
-        <div className="w-14 h-1 bg-purple-500 mx-auto rounded-full mb-5" />
-        <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
-          Looking for a software engineer who ships production-ready work? I&apos;m
-          available for full-time roles, contracts, and freelance projects.
-        </p>
-      </motion.div>
+      <div className="grid md:grid-cols-2 gap-14">
 
-      <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-
-        {/* ── Left: contact info ───────────────────────────────── */}
+        {/* Left: editorial heading + contact info */}
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.05 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h3 className="text-lg font-bold mb-5">Get in touch</h3>
+          <div className="mb-8">
+            <span className="section-label">Contact</span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight">
+              Let&apos;s Build<br />Something Together.
+            </h2>
+            <p className="font-body text-sm text-[#a3a3a3] mt-3 leading-relaxed">
+              Available for full-time roles, contracts, and freelance projects.
+            </p>
+          </div>
 
-          <div className="space-y-3 mb-8">
+          <div className="space-y-3">
             {contactItems.map((c) => {
               const Icon = c.icon
               const inner = (
-                <div className="flex items-center gap-3.5 p-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-colors group">
-                  <div className="p-2.5 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 shrink-0">
-                    <Icon size={17} />
+                <div className="flex items-center gap-3.5 p-4 bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm transition-colors group">
+                  <div className="p-2.5 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0 group-hover:border-primary/30 transition-colors">
+                    <Icon size={15} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-gray-500 dark:text-gray-500 mb-0.5">{c.label}</p>
-                    <p className="text-sm font-semibold truncate">{c.value}</p>
+                    <p className="font-body text-[10px] uppercase tracking-widest text-[#525252] mb-0.5">{c.label}</p>
+                    <p className="font-body text-sm font-medium text-foreground truncate">{c.value}</p>
                   </div>
                   {c.href && (
-                    <ArrowUpRight size={14} className="ml-auto text-gray-400 group-hover:text-purple-500 transition-colors shrink-0" />
+                    <ArrowUpRight size={13} className="ml-auto text-[#525252] group-hover:text-primary transition-colors shrink-0" />
                   )}
                 </div>
               )
@@ -77,21 +67,16 @@ export default function Contact() {
               )
             })}
           </div>
-
-          <p className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-4">
-            Find me online
-          </p>
-          <FloatingDockDemo />
         </motion.div>
 
-        {/* ── Right: form ─────────────────────────────────────── */}
+        {/* Right: form */}
         <motion.div
           initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
+          transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h3 className="text-lg font-bold mb-5">Send a message</h3>
+          <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-primary mb-5">Send a message</p>
           <ContactForm />
         </motion.div>
 

@@ -1,117 +1,227 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import HoverEffect from "@/components/card-hover-effect"
+import { motion } from "framer-motion";
+import { MapPin, Mail, Briefcase, Sparkles } from "lucide-react";
+import Image from "next/image";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 },
+  }),
+};
 
 const stats = [
-  { value: "2",   label: "Companies" },
-  { value: "11+", label: "Live Projects" },
-  { value: "15+", label: "Technologies" },
-  { value: "1+",  label: "Years XP" },
-]
-
-const cards = [
-  {
-    title: "Sole Frontend Engineer",
-    description:
-      "Built a full cybersecurity platform UI with no Figma, no design reference — designed, developed, and shipped to production at SOCByte.",
-  },
-  {
-    title: "11 Live Projects",
-    description:
-      "Healthcare AI, pharmacy search, photo editing, e-commerce, chatbots — shipped across diverse domains on Vercel and AWS.",
-  },
-  {
-    title: "Full-Stack Delivery",
-    description:
-      "REST APIs, backend modules, and database design across Node.js, FastAPI, and MongoDB/PostgreSQL — not just frontend.",
-  },
-  {
-    title: "MERN + Python",
-    description:
-      "React, Next.js, TypeScript, Node.js, FastAPI, Docker, AWS — the complete delivery stack for modern web platforms.",
-  },
-]
+  { value: "3+", label: "Years" },
+  { value: "15+", label: "Projects" },
+  { value: "5+", label: "Clients" },
+  { value: "∞", label: "Coffee" },
+];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-x-hidden">
-
-      {/* Heading */}
+    <section
+      id="about"
+      className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden"
+    >
+      {/* Section header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-14"
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-10"
       >
-        <h2 className="text-4xl sm:text-5xl font-black mb-4">About Me</h2>
-        <div className="w-14 h-1 bg-purple-500 mx-auto rounded-full" />
+        <span className="section-label">About Me</span>
+        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">
+          The Person Behind the Code
+        </h2>
       </motion.div>
 
-      {/* Stats strip */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.05 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
-      >
-        {stats.map((s) => (
+      {/* Bento grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Card 1 — About text (col-span-2) */}
+        <motion.div
+          custom={0}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="md:col-span-2 bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-7 transition-colors duration-300 relative overflow-hidden"
+        >
+          {/* Subtle grid bg */}
           <div
-            key={s.label}
-            className="text-center py-7 px-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/40 hover:border-purple-500/40 transition-colors"
-          >
-            <p className="text-4xl font-black text-purple-500 mb-1">{s.value}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{s.label}</p>
+            className="pointer-events-none absolute inset-0 opacity-[0.025]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right,#6366f1 1px,transparent 1px),linear-gradient(to bottom,#6366f1 1px,transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+          <div className="relative z-10 flex flex-col sm:flex-row gap-6 items-start">
+            <div className="shrink-0 w-20 h-20 sm:w-24 sm:h-24 border-2 border-primary/40 rounded-full overflow-hidden relative ring-4 ring-primary/10">
+              <Image src="/p1.png" alt="Eman" fill className="object-cover object-center pt-1" />
+            </div>
+            <div>
+              <h3 className="font-heading text-lg font-semibold text-foreground mb-3">
+                Eman Ali Abbasi
+              </h3>
+              <p className="font-body text-sm text-[#a3a3a3] leading-relaxed mb-3">
+                I&apos;m a Full-Stack Developer and UI/UX enthusiast currently working at{" "}
+                <span className="text-primary font-medium">SOCByte</span>. I specialize in
+                building fast, accessible, and conversion-focused web experiences using
+                React, Next.js, Vue, and Node.js.
+              </p>
+              <p className="font-body text-sm text-[#a3a3a3] leading-relaxed">
+                Beyond code, I create AI-generated UGC ads, consult on digital strategy,
+                and contribute to open-source. My goal: write software that is beautiful,
+                purposeful, and built to last.
+              </p>
+            </div>
           </div>
-        ))}
-      </motion.div>
+        </motion.div>
 
-      {/* Two-column: text + hover cards */}
-      <div className="lg:grid grid-cols-2 gap-14 space-y-10 lg:space-y-0">
-
-        {/* Text */}
+        {/* Card 2 — Stats 2x2 */}
         <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          custom={1}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="space-y-5 text-base sm:text-lg leading-relaxed font-medium"
+          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300"
         >
-          <p>
-            I&apos;m{" "}
-            <strong>Eman Ali Abbasi</strong> — Software Engineer and
-            Full-Stack Developer. At{" "}
-            <strong>SOCByte</strong>, I&apos;m the sole frontend engineer: I
-            designed and built the entire cybersecurity platform UI from
-            scratch — no Figma, no design reference, no hand-holding — and
-            shipped it to production on schedule.
+          <p className="font-body text-[10px] font-semibold uppercase tracking-widest text-[#525252] mb-4">
+            By the Numbers
           </p>
-          <p>
-            My core stack is React.js, Next.js, TypeScript, and the MERN
-            stack. Beyond the UI, I&apos;ve engineered REST API layers and
-            backend modules for Threat Intelligence, Asset Management, and
-            Reporting — and deployed applications using Docker and AWS.
+          <div className="grid grid-cols-2 gap-4 h-[calc(100%-2rem)]">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="flex flex-col justify-center bg-[#161616] border border-[#1f1f1f] rounded-sm p-3"
+              >
+                <span className="font-heading text-2xl font-bold text-primary leading-none">
+                  {s.value}
+                </span>
+                <span className="font-body text-[10px] uppercase tracking-widest text-[#525252] mt-1">
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Card 3 — Companies */}
+        <motion.div
+          custom={2}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300"
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <div className="p-2 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0">
+              <Briefcase size={14} />
+            </div>
+            <p className="font-body text-[10px] font-semibold uppercase tracking-widest text-[#525252]">
+              Work Experience
+            </p>
+          </div>
+
+          {/* SOCByte — current */}
+          <div className="flex items-center gap-3 p-3 bg-[#161616] border border-primary/20 rounded-sm mb-2">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden  shrink-0 ">
+              <Image src="/company2.png" alt="SOCByte" fill className="object-contain p-0.5" />
+            </div>
+            <div className="min-w-0">
+              <p className="font-heading text-xs font-semibold text-foreground leading-none">SOCByte</p>
+              <p className="font-body text-[10px] text-[#525252] mt-0.5">Full-Stack Dev · 2025–Present</p>
+            </div>
+            <span className="ml-auto font-body text-[9px] px-1.5 py-0.5 rounded-sm bg-primary/10 text-primary border border-primary/20 uppercase tracking-wider shrink-0">
+              Now
+            </span>
+          </div>
+
+          {/* TemplateSpace — previous */}
+          <div className="flex items-center gap-3 p-3 bg-[#161616] border border-[#1f1f1f] rounded-sm">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden  shrink-0 ">
+              <Image src="/company.png" alt="TemplateSpace" fill className="object-contain p-0.5" />
+            </div>
+            <div className="min-w-0">
+              <p className="font-heading text-xs font-semibold text-foreground leading-none">TemplateSpace</p>
+              <p className="font-body text-[10px] text-[#525252] mt-0.5">Junior Frontend Dev · 2024</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Card 4 — Open to work */}
+        <motion.div
+          custom={3}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+            </span>
+            <Sparkles size={13} className="text-primary" />
+            <span className="font-body text-xs font-semibold text-emerald-400">
+              Open to Work
+            </span>
+          </div>
+          <p className="font-heading text-sm font-semibold text-foreground mb-1">
+            Full-time &amp; Freelance
           </p>
-          <p className="text-gray-600 dark:text-gray-400">
-            I care about clean architecture, measurable performance, and code
-            the next engineer can read without a map. I build things that work
-            in production — not just demos.
+          <p className="font-body text-xs text-[#a3a3a3] leading-relaxed">
+            Looking for senior frontend / full-stack roles or exciting freelance
+            projects. Let&apos;s build something.
           </p>
         </motion.div>
 
-        {/* Cards */}
+        {/* Card 5 — Location + email */}
         <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          custom={4}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
-          className="grid sm:grid-cols-2 gap-5"
+          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300 space-y-4"
         >
-          <HoverEffect items={cards} />
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0">
+              <MapPin size={14} />
+            </div>
+            <div>
+              <p className="font-body text-[10px] uppercase tracking-widest text-[#525252]">
+                Location
+              </p>
+              <p className="font-body text-sm text-foreground">Karachi, Pakistan</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0">
+              <Mail size={14} />
+            </div>
+            <div>
+              <p className="font-body text-[10px] uppercase tracking-widest text-[#525252]">
+                Email
+              </p>
+              <a
+                href="mailto:eman.abbasi@socbyte.ai"
+                className="font-body text-sm text-foreground hover:text-primary transition-colors"
+              >
+                eman.abbasi@socbyte.ai
+              </a>
+            </div>
+          </div>
         </motion.div>
-
       </div>
     </section>
-  )
+  );
 }

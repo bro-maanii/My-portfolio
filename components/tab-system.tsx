@@ -9,18 +9,17 @@ interface TabSystemProps {
 
 export function TabSystem({ activeTab, setActiveTab }: TabSystemProps) {
   return (
-    <div className="flex justify-center space-x-4">
+    <div className="flex gap-8 border-b border-[#1f1f1f] mb-8">
       {tabs.map((tab) => (
         <motion.button
           key={tab}
-          className={`px-4 py-2 rounded-full text-sm font-medium ${
+          className={`font-body pb-3 text-[11px] font-semibold uppercase tracking-widest border-b-2 transition-colors ${
             activeTab === tab
-              ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-              : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+              ? "text-foreground border-primary"
+              : "text-[#525252] border-transparent hover:text-[#a3a3a3]"
           }`}
           onClick={() => setActiveTab(tab)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ scale: 0.97 }}
         >
           {tab}
         </motion.button>
@@ -28,4 +27,3 @@ export function TabSystem({ activeTab, setActiveTab }: TabSystemProps) {
     </div>
   )
 }
-

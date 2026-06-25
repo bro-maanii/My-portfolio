@@ -26,15 +26,15 @@ export const HoverEffect = ({
             transition={{ duration: 0.4, delay: index * 0.08 }}
             whileHover={{ y: -5 }}
             className={cn(
-              "group relative p-5 rounded-2xl flex flex-col gap-3",
-              "bg-white dark:bg-gray-900/50",
-              "border border-gray-200 dark:border-gray-800",
-              "hover:border-purple-500/50 dark:hover:border-purple-500/50",
-              "transition-all duration-300 shadow-sm hover:shadow-lg",
+              "group relative p-5 rounded-sm flex flex-col gap-3",
+              "bg-[#111111]",
+              "border border-[#1f1f1f]",
+              "hover:border-primary/30",
+              "transition-all duration-300",
               className
             )}
           >
-            <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 w-fit">
+            <div className="p-2.5 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary w-fit">
               <Icon size={20} />
             </div>
             <h3 className="text-base font-bold leading-snug">{item.title}</h3>

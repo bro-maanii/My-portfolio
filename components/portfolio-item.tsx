@@ -15,18 +15,27 @@ interface PortfolioItemProps {
     Codeurl?: string
     Liveurl?: string
   }
+  index: number
 }
 
-export function PortfolioItem({ item }: PortfolioItemProps) {
+export function PortfolioItem({ item, index }: PortfolioItemProps) {
   return (
     <motion.div
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3 }}
-      className="group bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-purple-500/40 dark:hover:border-purple-500/40 transition-all duration-300 flex flex-col"
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden hover:border-primary/30 transition-all duration-300 flex flex-col"
     >
+      {/* Corner accents on hover */}
+      <div className="pointer-events-none absolute inset-0 z-20 hidden group-hover:block">
+        <div className="absolute -left-[2px] -top-[2px] h-3 w-3 bg-primary/70" />
+        <div className="absolute -right-[2px] -top-[2px] h-3 w-3 bg-primary/70" />
+        <div className="absolute -left-[2px] -bottom-[2px] h-3 w-3 bg-primary/70" />
+        <div className="absolute -right-[2px] -bottom-[2px] h-3 w-3 bg-primary/70" />
+      </div>
+
       {/* Image + hover overlay */}
       <div className="relative overflow-hidden h-48 shrink-0">
         <Image
@@ -36,22 +45,27 @@ export function PortfolioItem({ item }: PortfolioItemProps) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
+        {/* Project number — decorative bg text */}
+        <span className="absolute top-3 right-3 font-heading text-5xl font-extrabold text-white/8 leading-none select-none z-0 pointer-events-none">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
         {/* Category badge */}
-        <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-black/55 text-white backdrop-blur-sm px-2.5 py-1 rounded-full z-10">
+        <span className="absolute top-3 left-3 font-body text-[9px] font-semibold uppercase tracking-widest bg-black/60 text-white px-2.5 py-1 rounded-sm z-10">
           {item.category}
         </span>
 
         {/* Dark overlay + action buttons on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-3 gap-2">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-3 gap-2 z-10">
           {item.Codeurl && (
             <Link
               href={item.Codeurl}
               target="_blank"
               onClick={(e) => e.stopPropagation()}
               aria-label="View source code"
-              className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center hover:bg-white/25 transition-colors"
+              className="w-9 h-9 rounded-sm bg-[#161616] border border-[#1f1f1f] flex items-center justify-center hover:border-[#2a2a2a] transition-colors"
             >
-              <Github size={15} className="text-white" />
+              <Github size={14} className="text-white" />
             </Link>
           )}
           {item.Liveurl && (
@@ -60,9 +74,9 @@ export function PortfolioItem({ item }: PortfolioItemProps) {
               target="_blank"
               onClick={(e) => e.stopPropagation()}
               aria-label="View live demo"
-              className="w-9 h-9 rounded-full bg-purple-600/80 backdrop-blur-sm border border-purple-500/40 flex items-center justify-center hover:bg-purple-600 transition-colors"
+              className="w-9 h-9 rounded-sm bg-primary/80 border border-primary/40 flex items-center justify-center hover:bg-primary transition-colors"
             >
-              <ExternalLink size={15} className="text-white" />
+              <ExternalLink size={14} className="text-white" />
             </Link>
           )}
         </div>
@@ -70,20 +84,20 @@ export function PortfolioItem({ item }: PortfolioItemProps) {
 
       {/* Card body */}
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="text-sm font-bold leading-snug mb-2">{item.title}</h3>
+        <h3 className="font-heading text-sm font-semibold text-foreground leading-snug mb-2">{item.title}</h3>
 
         {item.description && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2 mb-3">
+          <p className="font-body text-xs text-[#a3a3a3] leading-relaxed line-clamp-2 mb-3">
             {item.description}
           </p>
         )}
 
         {item.tech && item.tech.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-auto pt-1">
+          <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
             {item.tech.map((t) => (
               <span
                 key={t}
-                className="text-[10px] px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 font-semibold border border-purple-200/60 dark:border-purple-800/40"
+                className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-[#1f1f1f] bg-[#161616] text-[#a3a3a3]"
               >
                 {t}
               </span>

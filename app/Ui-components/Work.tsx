@@ -13,7 +13,7 @@ import { ExternalLink } from "lucide-react";
 const featured = {
   title:       "DiaCare — AI-Powered Diabetes Management",
   category:    "WEB DEV",
-  image:       "/ProjectsImages/DiaCare_web.PNG",
+  image:       "/ProjectsImages/Diacare_web.png",
   liveUrl:     "https://diabetescaresystem.vercel.app/",
   description:
     "End-to-end health management platform where users track blood glucose, manage medications, and receive AI-personalised diet and exercise plans. Built an AI chatbot and automated health report generator with Python + FastAPI, real-time glucose trend visualisations, and a 3-month longitudinal audit. Containerised with Docker and deployed on AWS.",
@@ -26,7 +26,7 @@ const portfolioItems = [
     id: 1,
     title: "Generic Medicine Finder",
     category: "WEB DEV",
-    image: "/ProjectsImages/Generic_web.PNG",
+    image: "/ProjectsImages/Generic_web.png",
     Liveurl: "https://altmedicinefinder.vercel.app/",
     description: "Finds affordable generic alternatives and compares prices across pharmacies with a real-time Google Maps pharmacy locator.",
     tech: ["JavaScript", "MongoDB", "Node.js", "Google Maps API"],
@@ -137,14 +137,15 @@ export default function Portfolio() {
 
       {/* Heading */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-14"
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-12"
       >
-        <h2 className="text-4xl sm:text-5xl font-black mb-4">My Portfolio</h2>
-        <div className="w-14 h-1 bg-blue-500 mx-auto rounded-full mb-5" />
-        <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+        <span className="section-label">Portfolio</span>
+        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">My Work</h2>
+        <p className="font-body text-sm text-[#a3a3a3] mt-3 max-w-md">
           Production-grade work across web development and AI — every project ships to real users.
         </p>
       </motion.div>
@@ -155,42 +156,47 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/40 overflow-hidden hover:border-purple-500/40 transition-colors shadow-sm hover:shadow-xl"
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10 bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden hover:border-[#2a2a2a] transition-colors"
         >
           <div className="flex flex-col md:flex-row">
             {/* Image */}
             <div className="relative w-full md:w-[55%] h-56 sm:h-72 md:h-auto overflow-hidden">
+              {/* Project number */}
+              <span className="absolute top-4 left-4 font-heading text-6xl font-extrabold text-white/10 leading-none select-none z-10 pointer-events-none">
+                01
+              </span>
               <Image
                 src={featured.image}
                 alt={featured.title}
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10 dark:to-black/30" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
             </div>
 
             {/* Content */}
             <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-purple-500 bg-purple-500/10 px-2.5 py-1 rounded-full border border-purple-500/20">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="font-body text-[9px] font-semibold uppercase tracking-widest text-primary bg-primary/10 px-2.5 py-1 rounded-sm border border-primary/20">
                     Featured Project
                   </span>
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-500 bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">
+                  <span className="font-body text-[9px] font-semibold uppercase tracking-widest text-[#a3a3a3] bg-[#161616] px-2.5 py-1 rounded-sm border border-[#1f1f1f]">
                     {featured.category}
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-black mb-3 leading-snug">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-3 leading-snug">
                   {featured.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5">
+                <p className="font-body text-sm text-[#a3a3a3] leading-relaxed mb-5">
                   {featured.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {featured.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-[11px] px-2.5 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 font-semibold"
+                      className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-[#1f1f1f] bg-[#161616] text-[#a3a3a3]"
                     >
                       {t}
                     </span>
@@ -199,8 +205,8 @@ export default function Portfolio() {
               </div>
               <div>
                 <Link href={featured.liveUrl} target="_blank">
-                  <Button className="gap-2 bg-purple-600 hover:bg-purple-700 text-white shadow-md shadow-purple-500/20">
-                    <ExternalLink size={14} />
+                  <Button className="font-body gap-2 bg-primary hover:bg-primary/90 text-white rounded-sm shadow-lg shadow-primary/20 text-sm font-medium">
+                    <ExternalLink size={13} />
                     Live Demo
                   </Button>
                 </Link>
@@ -216,11 +222,11 @@ export default function Portfolio() {
       {/* ── Project grid ────────────────────────────────────────── */}
       <motion.div
         layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
       >
         <AnimatePresence>
-          {filtered.map((item) => (
-            <PortfolioItem key={item.id} item={item} />
+          {filtered.map((item, i) => (
+            <PortfolioItem key={item.id} item={item} index={i} />
           ))}
         </AnimatePresence>
       </motion.div>

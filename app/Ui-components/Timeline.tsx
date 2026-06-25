@@ -1,15 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const timelineData = [
   {
     title: "Software Engineer",
     organization: "SOCByte Private Limited",
     period: "April 2025 – Present",
-    type: "work",
-    icon: "/company2.png",
+    year: "2025",
     current: true,
     highlights: [
       "Sole frontend engineer — built entire cybersecurity platform UI from scratch, no Figma, no design reference; delivered production-ready on schedule.",
@@ -21,8 +20,7 @@ const timelineData = [
     title: "Junior Frontend Developer",
     organization: "TemplateSpace",
     period: "September 2024 – December 2024",
-    type: "work",
-    icon: "/company.png",
+    year: "2024",
     current: false,
     highlights: [
       "Delivered pixel-perfect, responsive UIs across multiple client projects using Vue.js, React.js, Next.js, and Tailwind CSS.",
@@ -30,11 +28,21 @@ const timelineData = [
     ],
   },
   {
+    title: "Freelance MERN Stack Developer",
+    organization: "Self-Employed / Remote Clients",
+    period: "January 2024 – August 2024",
+    year: "2024",
+    current: false,
+    highlights: [
+      "Delivered 5+ client projects including e-commerce platforms, portfolio sites, and internal dashboards.",
+      "Managed complete project lifecycle — requirements, design, development, and deployment.",
+    ],
+  },
+  {
     title: "Bachelor of Software Engineering",
     organization: "University of Karachi — UBIT",
     period: "February 2022 – December 2025",
-    type: "education",
-    icon: "/ku_icon.jpg",
+    year: "2022",
     current: false,
     highlights: [
       "Coursework in software design, algorithms, databases, and full-stack web development.",
@@ -44,95 +52,63 @@ const timelineData = [
 
 export default function ProfessionalTimeline() {
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-x-hidden">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-x-hidden">
 
       {/* Heading */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-14"
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-12"
       >
-        <h2 className="text-4xl sm:text-5xl font-black mb-4">My Timeline</h2>
-        <div className="w-14 h-1 bg-purple-500 mx-auto rounded-full" />
+        <span className="section-label">Experience</span>
+        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">My Timeline</h2>
       </motion.div>
 
-      <div className="relative">
-        {/* Glowing vertical line */}
-        <div className="absolute left-8 top-0 bottom-0 w-[3px] glow-line rounded-full" />
+      {/* Table */}
+      <div className="divide-y divide-[#1f1f1f]">
+        {timelineData.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className={cn(
+              "grid grid-cols-[64px_1fr] md:grid-cols-[64px_1fr_160px] gap-4 md:gap-6 py-7 transition-colors",
+              item.current && "pl-4 border-l-2 border-primary"
+            )}
+          >
+            {/* Year */}
+            <span className="font-heading text-xs font-semibold text-primary pt-0.5">{item.year}</span>
 
-        <div className="space-y-8">
-          {timelineData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex items-start gap-5"
-            >
-              {/* Dot on line */}
-              <div
-                className={`absolute left-[26px] top-7 w-4 h-4 rounded-full z-10 border-2 border-background shadow-md ${
-                  item.current
-                    ? "bg-purple-500 shadow-purple-500/40 animate-pulse"
-                    : "bg-gray-400 dark:bg-gray-600"
-                }`}
-              />
-
-              {/* Logo circle */}
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.12 + 0.1 }}
-                className="relative z-10 shrink-0"
-              >
-                <div className="w-16 h-16 rounded-full bg-white shadow-md p-1.5 border border-gray-100 dark:border-gray-800 flex items-center justify-center hover:scale-105 transition-transform">
-                  <Image
-                    src={item.icon}
-                    alt={item.organization}
-                    width={48}
-                    height={48}
-                    className="rounded-full object-cover"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Card */}
-              <div className="flex-1 p-5 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/40 hover:border-purple-500/40 transition-colors shadow-sm hover:shadow-lg">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-base font-bold">{item.title}</h3>
-                      {item.current && (
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-500 border border-purple-500/20">
-                          Current
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-sm text-purple-500 font-semibold">{item.organization}</p>
-                  </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-500 font-medium whitespace-nowrap shrink-0">
-                    {item.period}
+            {/* Role + org + highlights */}
+            <div>
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <h3 className="font-heading text-sm font-semibold text-foreground">{item.title}</h3>
+                {item.current && (
+                  <span className="font-body text-[9px] font-semibold px-2 py-0.5 rounded-sm bg-primary/10 text-primary border border-primary/20 uppercase tracking-wider">
+                    Current
                   </span>
-                </div>
-
-                <ul className="space-y-2">
-                  {item.highlights.map((h, hi) => (
-                    <li
-                      key={hi}
-                      className="flex items-start gap-2.5 text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
-                    >
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
+                )}
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <p className="font-body text-xs text-primary mb-3">{item.organization}</p>
+              <ul className="space-y-1.5">
+                {item.highlights.map((h, hi) => (
+                  <li key={hi} className="font-body text-xs text-[#a3a3a3] leading-relaxed pl-3 border-l border-[#2a2a2a]">
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Full period — desktop only */}
+            <span className="hidden md:block font-body text-[11px] text-[#525252] pt-0.5 text-right leading-relaxed">
+              {item.period}
+            </span>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

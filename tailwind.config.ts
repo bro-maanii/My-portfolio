@@ -14,15 +14,28 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			heading: ["var(--font-syne)", "sans-serif"],
+			body: ["var(--font-dm-sans)", "sans-serif"],
+		},
 		animation: {
 			scroll:
 			  "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+			grain: "grain 8s steps(10) infinite",
 		  },
 		  keyframes: {
 			scroll: {
 			  to: {
 				transform: "translate(calc(-50% - 0.5rem))",
 			  },
+			},
+			grain: {
+			  "0%, 100%": { transform: "translate(0, 0)" },
+			  "10%": { transform: "translate(-2%, -3%)" },
+			  "30%": { transform: "translate(3%, 2%)" },
+			  "50%": { transform: "translate(-1%, 4%)" },
+			  "70%": { transform: "translate(2%, -1%)" },
+			  "90%": { transform: "translate(-3%, 1%)" },
 			},
 		  },
   		colors: {

@@ -24,7 +24,7 @@ export default function ContactForm() {
             id="name"
             placeholder="Your name"
             required
-            className="focus-visible:ring-purple-500/30 focus-visible:border-purple-500"
+            className="focus-visible:ring-primary/20 focus-visible:border-primary"
           />
         </div>
         <div className="space-y-1.5">
@@ -37,7 +37,7 @@ export default function ContactForm() {
             name="email"
             placeholder="your@email.com"
             required
-            className="focus-visible:ring-purple-500/30 focus-visible:border-purple-500"
+            className="focus-visible:ring-primary/20 focus-visible:border-primary"
           />
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function ContactForm() {
           name="subject"
           placeholder="What's this about?"
           required
-          className="focus-visible:ring-purple-500/30 focus-visible:border-purple-500"
+          className="focus-visible:ring-primary/20 focus-visible:border-primary"
         />
       </div>
 
@@ -65,13 +65,13 @@ export default function ContactForm() {
           name="message"
           placeholder="Tell me about your project or opportunity..."
           required
-          className="min-h-[150px] resize-none focus-visible:ring-purple-500/30 focus-visible:border-purple-500"
+          className="min-h-[150px] resize-none focus-visible:ring-primary/20 focus-visible:border-primary"
         />
       </div>
 
       <Button
         type="submit"
-        className="w-full gap-2 bg-purple-600 hover:bg-purple-700 text-white shadow-lg shadow-purple-500/20 transition-all"
+        className="w-full gap-2 bg-primary hover:bg-primary/90 text-white rounded-sm shadow-lg shadow-primary/20 font-body text-sm font-medium transition-all"
         onClick={(e) => {
           e.preventDefault();
           const form = (e.target as HTMLElement).closest("form");

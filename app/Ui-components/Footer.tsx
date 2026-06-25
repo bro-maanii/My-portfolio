@@ -1,58 +1,48 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { FloatingDockDemo } from "@/components/IconContact";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
+  { label: "Home",    href: "#home" },
+  { label: "About",   href: "#about" },
+  { label: "Work",    href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
 
 const socialLinks = [
-  {
-    label: "GitHub",
-    href: "https://github.com/bro-maanii",
-    icon: Github,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/emanaliabbasi-softwareengineer/",
-    icon: Linkedin,
-  },
-  {
-    label: "Email",
-    href: "mailto:emanaliabbasi31@gmail.com",
-    icon: Mail,
-  },
+  { label: "GitHub",   href: "https://github.com/bro-maanii",                                    icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/emanaliabbasi-softwareengineer/",       icon: Linkedin },
+  { label: "Email",    href: "mailto:emanaliabbasi31@gmail.com",                                  icon: Mail },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-800 mt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="border-t border-[#1f1f1f] mt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        {/* Social dock — centered */}
+        <div className="flex justify-center mb-8">
+          <FloatingDockDemo />
+        </div>
+
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Brand */}
-          <div className="text-center sm:text-left">
-            <p className="font-bold text-lg">Eman Ali Abbasi</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-              Software Engineer &amp; Full-Stack Developer
-            </p>
-          </div>
+          <p className="font-heading font-bold text-lg text-foreground">Eman.</p>
 
           {/* Nav */}
-          <nav className="flex gap-5 text-sm text-gray-600 dark:text-gray-400">
+          <nav className="flex gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="hover:text-purple-500 transition-colors"
+                className="font-body text-[11px] font-medium uppercase tracking-widest text-[#525252] hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Social */}
+          {/* Social icons — minimal inline */}
           <div className="flex gap-4">
             {socialLinks.map((s) => {
               const Icon = s.icon;
@@ -63,20 +53,17 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-gray-500 dark:text-gray-400 hover:text-purple-500 transition-colors"
+                  className="text-[#525252] hover:text-primary transition-colors"
                 >
-                  <Icon size={18} />
+                  <Icon size={16} />
                 </Link>
               );
             })}
           </div>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800/60 text-center">
-          <p className="text-xs text-gray-500 dark:text-gray-500 italic">
-            Sculpted with code, polished with passion
-          </p>
-          <p className="text-xs text-gray-400 dark:text-gray-600 mt-1">
+        <div className="mt-6 pt-4 border-t border-[#1f1f1f] text-center">
+          <p className="font-body text-xs text-[#525252]">
             &copy; 2026 Eman Ali Abbasi. All rights reserved.
           </p>
         </div>

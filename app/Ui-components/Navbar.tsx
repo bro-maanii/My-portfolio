@@ -1,15 +1,16 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { ModeToggle } from "@/components/ModeToggle"
 
 const navLinks = [
-  { label: "Home",    href: "#home" },
-  { label: "About",   href: "#about" },
-  { label: "Work",    href: "#work" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home",     href: "#home" },
+  { label: "About",    href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Work",     href: "#work" },
+  { label: "Contact",  href: "#contact" },
 ]
 
 export default function Navbar() {
@@ -26,7 +27,7 @@ export default function Navbar() {
     <nav
       className={`sticky top-0 z-50 w-full max-w-full overflow-x-hidden transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 dark:bg-[hsl(240,10%,4%)]/95 backdrop-blur-md border-b border-gray-200/60 dark:border-white/5 shadow-sm"
+          ? "bg-background/90 backdrop-blur-xl border-b border-[#1f1f1f]"
           : "bg-transparent"
       }`}
     >
@@ -36,54 +37,42 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="#home"
-            className="text-2xl font-black italic font-mono text-purple-500 hover:text-purple-400 transition-colors"
+            className="font-heading text-xl font-bold text-foreground hover:text-primary transition-colors tracking-tight"
           >
-            Maani.
+            Eman.
           </Link>
 
           {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors"
+                className="font-body text-[11px] font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* Right side — social + toggle + mobile btn */}
-          <div className="flex items-center gap-1">
-            <div className="hidden md:flex items-center gap-1 mr-2">
-              <Link
-                href="https://github.com/bro-maanii"
-                target="_blank"
-                aria-label="GitHub"
-                className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors"
-              >
-                <Github size={17} />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/emanaliabbasi-softwareengineer/"
-                target="_blank"
-                aria-label="LinkedIn"
-                className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors"
-              >
-                <Linkedin size={17} />
-              </Link>
-            </div>
-
+          {/* Right side — theme toggle + Hire Me CTA + mobile btn */}
+          <div className="flex items-center gap-3">
             <ModeToggle />
+
+            <Link
+              href="#contact"
+              className="hidden md:inline-flex items-center px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest rounded-sm bg-primary text-white hover:bg-primary/90 transition-colors font-body"
+            >
+              Hire Me
+            </Link>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
-              className="md:hidden ml-1 p-2 rounded-lg text-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors"
+              className="md:hidden p-2 rounded-sm text-[#a3a3a3] hover:text-foreground transition-colors"
             >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
+              {isOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
@@ -91,21 +80,26 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="md:hidden border-t border-gray-200/60 dark:border-white/5 bg-white dark:bg-[hsl(240,8%,7%)]">
-          <div className="px-4 py-3 space-y-0.5">
+        <div className="md:hidden border-t border-[#1f1f1f] bg-background">
+          <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-lg transition-colors"
+                className="block px-3 py-2.5 font-body text-[11px] font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            <div className="flex items-center gap-3 px-3 pt-3 pb-1">
-              <Link href="https://github.com/bro-maanii" target="_blank" className="text-gray-500 hover:text-purple-500 transition-colors"><Github size={17} /></Link>
-              <Link href="https://www.linkedin.com/in/emanaliabbasi-softwareengineer/" target="_blank" className="text-gray-500 hover:text-purple-500 transition-colors"><Linkedin size={17} /></Link>
+            <div className="pt-3 px-3">
+              <Link
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center px-4 py-2 text-[11px] font-semibold uppercase tracking-widest rounded-sm bg-primary text-white font-body"
+              >
+                Hire Me
+              </Link>
             </div>
           </div>
         </div>
