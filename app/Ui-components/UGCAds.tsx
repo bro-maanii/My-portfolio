@@ -98,7 +98,7 @@ export default function UGCAds() {
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">AI-Generated Ads</h2>
         <div className="flex items-center gap-2 mt-3">
           <Sparkles size={13} className="text-primary shrink-0" />
-          <p className="font-body text-sm text-[#a3a3a3]">
+          <p className="font-body text-sm text-muted-foreground">
             Script, voiceover, scenes, and editing — all made with AI tools.
           </p>
         </div>
@@ -114,10 +114,10 @@ export default function UGCAds() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => openModal(ad)}
-            className="group text-left bg-[#111111] border border-[#1f1f1f] hover:border-primary/30 rounded-sm overflow-hidden transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="group text-left bg-card border border-border hover:border-primary/30 rounded-sm overflow-hidden transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             {/* Video preview (muted autoplay loop as thumbnail) */}
-            <div className="relative h-52 overflow-hidden bg-[#0a0a0a]">
+            <div className="relative h-52 overflow-hidden bg-background">
               <video
                 src={ad.video}
                 autoPlay
@@ -143,14 +143,14 @@ export default function UGCAds() {
               <h3 className="font-heading text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
                 {ad.brand}
               </h3>
-              <p className="font-body text-xs text-[#a3a3a3] leading-relaxed line-clamp-2 mb-3">
+              <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">
                 {ad.hook}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {ad.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-body text-[10px] font-medium px-2 py-0.5 rounded-sm border border-[#1f1f1f] bg-[#161616] text-[#525252]"
+                    className="font-body text-[10px] font-medium px-2 py-0.5 rounded-sm border border-border bg-secondary text-muted-foreground"
                   >
                     {tag}
                   </span>
@@ -178,12 +178,12 @@ export default function UGCAds() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+              className="relative w-full max-w-4xl bg-card border border-border rounded-sm overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
             >
               {/* Close button */}
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-sm bg-black/60 text-[#a3a3a3] hover:text-foreground hover:bg-black/80 transition-colors backdrop-blur-sm"
+                className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-sm bg-black/60 text-muted-foreground hover:text-foreground hover:bg-black/80 transition-colors backdrop-blur-sm"
                 aria-label="Close"
               >
                 <X size={15} />
@@ -217,7 +217,7 @@ export default function UGCAds() {
                 <h3 className="font-heading text-lg font-bold text-foreground mt-1 mb-1">{active.brand}</h3>
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {active.tags.map((tag) => (
-                    <span key={tag} className="font-body text-[10px] px-2 py-0.5 rounded-sm border border-[#1f1f1f] bg-[#161616] text-[#525252]">
+                    <span key={tag} className="font-body text-[10px] px-2 py-0.5 rounded-sm border border-border bg-secondary text-muted-foreground">
                       {tag}
                     </span>
                   ))}
@@ -225,22 +225,22 @@ export default function UGCAds() {
 
                 {active.script.length > 0 ? (
                   <div className="space-y-4">
-                    <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-[#525252] mb-3">Ad Script</p>
+                    <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-3">Ad Script</p>
                     {active.script.map((line, i) => (
                       <div key={i} className="flex gap-3">
                         <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-primary shrink-0 pt-0.5 min-w-[56px]">
                           {line.label}
                         </span>
-                        <p className="font-body text-sm text-[#a3a3a3] leading-relaxed">
+                        <p className="font-body text-sm text-muted-foreground leading-relaxed">
                           {line.text}
                         </p>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div className="flex items-center gap-2 mt-4 p-4 bg-[#161616] border border-[#1f1f1f] rounded-sm">
+                  <div className="flex items-center gap-2 mt-4 p-4 bg-secondary border border-border rounded-sm">
                     <Sparkles size={13} className="text-primary shrink-0" />
-                    <p className="font-body text-sm text-[#a3a3a3] italic">
+                    <p className="font-body text-sm text-muted-foreground italic">
                       Pure cinematic visuals — no voiceover. Scene direction and editing entirely AI-generated.
                     </p>
                   </div>

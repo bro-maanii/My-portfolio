@@ -71,7 +71,7 @@ export default function Certifications() {
       >
         <span className="section-label">Credentials</span>
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">Certifications</h2>
-        <p className="font-body text-sm text-[#a3a3a3] mt-3">
+        <p className="font-body text-sm text-muted-foreground mt-3">
           Verified credentials from world-class institutions — click any card to view the certificate.
         </p>
       </motion.div>
@@ -91,10 +91,10 @@ export default function Certifications() {
                 href={cert.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-5 bg-[#111111] border border-[#1f1f1f] hover:border-primary/40 rounded-sm transition-all duration-300 block"
+                className="group flex items-start gap-4 p-5 bg-card border border-border hover:border-primary/40 rounded-sm transition-all duration-300"
               >
                 {/* Icon */}
-                <div className="p-2.5 rounded-sm border border-[#1f1f1f] bg-[#161616] text-primary shrink-0 group-hover:border-primary/30 group-hover:bg-primary/10 transition-colors">
+                <div className="p-2.5 rounded-sm border border-border bg-secondary text-primary shrink-0 group-hover:border-primary/30 group-hover:bg-primary/10 transition-colors">
                   <Icon size={18} />
                 </div>
 
@@ -103,10 +103,10 @@ export default function Certifications() {
                   <h3 className="font-heading text-sm font-semibold text-foreground leading-snug mb-1 group-hover:text-primary transition-colors">
                     {cert.title}
                   </h3>
-                  <p className="font-body text-xs text-[#a3a3a3] mb-2">
+                  <p className="font-body text-xs text-muted-foreground mb-2">
                     {cert.org}
                   </p>
-                  <span className="font-body inline-block text-[10px] px-2.5 py-0.5 rounded-sm bg-[#161616] border border-[#1f1f1f] text-[#525252]">
+                  <span className="font-body inline-block text-[10px] px-2.5 py-0.5 rounded-sm bg-secondary border border-border text-muted-foreground">
                     {cert.platform}
                   </span>
                 </div>
@@ -114,7 +114,7 @@ export default function Certifications() {
                 {/* External link icon */}
                 <ExternalLink
                   size={13}
-                  className="shrink-0 mt-0.5 text-[#525252] group-hover:text-primary transition-colors"
+                  className="shrink-0 mt-0.5 text-muted-foreground group-hover:text-primary transition-colors"
                 />
               </Link>
             </motion.div>

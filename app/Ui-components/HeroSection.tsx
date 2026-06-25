@@ -37,17 +37,17 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen   flex items-center bg-[#0a0a0a] noise-overlay overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-background noise-overlay overflow-hidden">
       {/* Ambient indigo glow */}
       <div className="pointer-events-none absolute -bottom-32 -left-32 w-[640px] h-[640px] rounded-full bg-primary/10 blur-[130px]" />
       <div className="pointer-events-none absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
 
       {/* Subtle grid */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06] dark:opacity-[0.03]"
         style={{
           backgroundImage:
-            "linear-gradient(to right,#6366f1 1px,transparent 1px),linear-gradient(to bottom,#6366f1 1px,transparent 1px)",
+            "linear-gradient(to right,hsl(var(--primary)) 1px,transparent 1px),linear-gradient(to bottom,hsl(var(--primary)) 1px,transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
@@ -82,11 +82,12 @@ export default function HeroSection() {
           {/* Subtitle */}
           <motion.p
             variants={item}
-            className="font-body text-base text-[#a3a3a3] max-w-md leading-relaxed mb-8"
+            className="font-body text-base text-muted-foreground max-w-md leading-relaxed mb-8"
           >
             I build scalable web apps, sleek UIs, and full-stack products that
             turn ideas into revenue — for startups and enterprises alike.
           </motion.p>
+
 
           {/* CTAs */}
           <motion.div variants={item} className="flex flex-wrap gap-3 mb-12">
@@ -100,7 +101,7 @@ export default function HeroSection() {
             <a
               href="/CV/Eman-webDev.pdf"
               download
-              className="inline-flex items-center gap-2 border border-[#2a2a2a] hover:border-[#3a3a3a] bg-transparent text-foreground font-body text-sm font-medium px-5 py-2.5 rounded-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-border hover:border-muted-foreground bg-transparent text-foreground font-body text-sm font-medium px-5 py-2.5 rounded-sm transition-colors duration-200"
             >
               Download CV
               <Download size={14} />
@@ -108,13 +109,13 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Stats */}
-          <motion.div variants={item} className="flex gap-8 border-t border-[#1f1f1f] pt-8">
+          <motion.div variants={item} className="flex gap-8 border-t border-border pt-8">
             {stats.map((s) => (
               <div key={s.label}>
                 <p className="font-heading text-2xl font-bold text-primary leading-none">
                   {s.value}
                 </p>
-                <p className="font-body text-[11px] uppercase tracking-widest text-[#525252] mt-1">
+                <p className="font-body text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
                   {s.label}
                 </p>
               </div>

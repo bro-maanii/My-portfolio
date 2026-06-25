@@ -26,7 +26,7 @@ export function PortfolioItem({ item, index }: PortfolioItemProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden hover:border-primary/30 transition-all duration-300 flex flex-col"
+      className="group relative bg-card border border-border rounded-sm overflow-hidden hover:border-primary/30 transition-all duration-300 flex flex-col"
     >
       {/* Corner accents on hover */}
       <div className="pointer-events-none absolute inset-0 z-20 hidden group-hover:block">
@@ -63,7 +63,7 @@ export function PortfolioItem({ item, index }: PortfolioItemProps) {
               target="_blank"
               onClick={(e) => e.stopPropagation()}
               aria-label="View source code"
-              className="w-9 h-9 rounded-sm bg-[#161616] border border-[#1f1f1f] flex items-center justify-center hover:border-[#2a2a2a] transition-colors"
+              className="w-9 h-9 rounded-sm bg-secondary border border-border flex items-center justify-center hover:border-border transition-colors"
             >
               <Github size={14} className="text-white" />
             </Link>
@@ -87,7 +87,7 @@ export function PortfolioItem({ item, index }: PortfolioItemProps) {
         <h3 className="font-heading text-sm font-semibold text-foreground leading-snug mb-2">{item.title}</h3>
 
         {item.description && (
-          <p className="font-body text-xs text-[#a3a3a3] leading-relaxed line-clamp-2 mb-3">
+          <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">
             {item.description}
           </p>
         )}
@@ -97,7 +97,7 @@ export function PortfolioItem({ item, index }: PortfolioItemProps) {
             {item.tech.map((t) => (
               <span
                 key={t}
-                className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-[#1f1f1f] bg-[#161616] text-[#a3a3a3]"
+                className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-border bg-secondary text-muted-foreground"
               >
                 {t}
               </span>

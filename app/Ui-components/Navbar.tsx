@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav
       className={`sticky top-0 z-50 w-full max-w-full overflow-x-hidden transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-[#1f1f1f]"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -48,7 +48,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="font-body text-[11px] font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-foreground transition-colors"
+                className="font-body text-[11px] font-medium uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
@@ -70,7 +70,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
-              className="md:hidden p-2 rounded-sm text-[#a3a3a3] hover:text-foreground transition-colors"
+              className="md:hidden p-2 rounded-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {isOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -80,14 +80,14 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="md:hidden border-t border-[#1f1f1f] bg-background">
+        <div className="md:hidden border-t border-border bg-background">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2.5 font-body text-[11px] font-medium uppercase tracking-widest text-[#a3a3a3] hover:text-foreground transition-colors"
+                className="block px-3 py-2.5 font-body text-[11px] font-medium uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>

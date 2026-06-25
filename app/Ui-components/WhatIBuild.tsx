@@ -42,7 +42,7 @@ export default function WhatIBuild() {
       >
         <span className="section-label">Services</span>
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">What I Build</h2>
-        <p className="font-body text-sm text-[#a3a3a3] mt-3 max-w-md">
+        <p className="font-body text-sm text-muted-foreground mt-3 max-w-md">
           Three disciplines, one engineer. Full stack — from pixel to production.
         </p>
       </motion.div>
@@ -58,7 +58,7 @@ export default function WhatIBuild() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative p-7 bg-[#111111] border border-[#1f1f1f] hover:border-primary/30 rounded-sm transition-all duration-300 flex flex-col gap-5 group overflow-visible"
+              className="relative p-7 bg-card border border-border hover:border-primary/30 rounded-sm transition-all duration-300 flex flex-col gap-5 group overflow-visible"
             >
               {/* Corner accents on hover */}
               <div className="pointer-events-none absolute inset-0 hidden group-hover:block">
@@ -69,14 +69,14 @@ export default function WhatIBuild() {
               </div>
 
               {/* Icon */}
-              <div className="p-3 rounded-sm border border-[#1f1f1f] bg-[#161616] text-primary w-fit group-hover:border-primary/30 transition-colors">
+              <div className="p-3 rounded-sm border border-border bg-secondary text-primary w-fit group-hover:border-primary/30 transition-colors">
                 <Icon size={20} />
               </div>
 
               {/* Text */}
               <div className="flex-1">
                 <h3 className="font-heading text-base font-semibold text-foreground mb-2">{s.title}</h3>
-                <p className="font-body text-sm text-[#a3a3a3] leading-relaxed">
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">
                   {s.description}
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function WhatIBuild() {
                 {s.tech.map((t) => (
                   <span
                     key={t}
-                    className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-[#1f1f1f] bg-[#161616] text-[#a3a3a3]"
+                    className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-border bg-secondary text-muted-foreground"
                   >
                     {t}
                   </span>

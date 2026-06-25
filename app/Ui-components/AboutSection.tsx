@@ -49,7 +49,7 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="md:col-span-2 bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-7 transition-colors duration-300 relative overflow-hidden"
+          className="md:col-span-2 bg-card border border-border hover:border-border rounded-sm p-7 transition-colors duration-300 relative overflow-hidden"
         >
           {/* Subtle grid bg */}
           <div
@@ -68,13 +68,13 @@ export default function AboutSection() {
               <h3 className="font-heading text-lg font-semibold text-foreground mb-3">
                 Eman Ali Abbasi
               </h3>
-              <p className="font-body text-sm text-[#a3a3a3] leading-relaxed mb-3">
+              <p className="font-body text-sm text-muted-foreground leading-relaxed mb-3">
                 I&apos;m a Full-Stack Developer and UI/UX enthusiast currently working at{" "}
                 <span className="text-primary font-medium">SOCByte</span>. I specialize in
                 building fast, accessible, and conversion-focused web experiences using
                 React, Next.js, Vue, and Node.js.
               </p>
-              <p className="font-body text-sm text-[#a3a3a3] leading-relaxed">
+              <p className="font-body text-sm text-muted-foreground leading-relaxed">
                 Beyond code, I create AI-generated UGC ads, consult on digital strategy,
                 and contribute to open-source. My goal: write software that is beautiful,
                 purposeful, and built to last.
@@ -90,21 +90,21 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300"
+          className="bg-card border border-border hover:border-border rounded-sm p-6 transition-colors duration-300"
         >
-          <p className="font-body text-[10px] font-semibold uppercase tracking-widest text-[#525252] mb-4">
+          <p className="font-body text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-4">
             By the Numbers
           </p>
           <div className="grid grid-cols-2 gap-4 h-[calc(100%-2rem)]">
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex flex-col justify-center bg-[#161616] border border-[#1f1f1f] rounded-sm p-3"
+                className="flex flex-col justify-center bg-secondary border border-border rounded-sm p-3"
               >
                 <span className="font-heading text-2xl font-bold text-primary leading-none">
                   {s.value}
                 </span>
-                <span className="font-body text-[10px] uppercase tracking-widest text-[#525252] mt-1">
+                <span className="font-body text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
                   {s.label}
                 </span>
               </div>
@@ -119,25 +119,25 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300"
+          className="bg-card border border-border hover:border-border rounded-sm p-6 transition-colors duration-300"
         >
           <div className="flex items-center gap-2 mb-4">
-            <div className="p-2 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0">
+            <div className="p-2 rounded-sm bg-secondary border border-border text-primary shrink-0">
               <Briefcase size={14} />
             </div>
-            <p className="font-body text-[10px] font-semibold uppercase tracking-widest text-[#525252]">
+            <p className="font-body text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
               Work Experience
             </p>
           </div>
 
           {/* SOCByte — current */}
-          <div className="flex items-center gap-3 p-3 bg-[#161616] border border-primary/20 rounded-sm mb-2">
+          <div className="flex items-center gap-3 p-3 bg-secondary border border-primary/20 rounded-sm mb-2">
             <div className="relative w-8 h-8 rounded-full overflow-hidden  shrink-0 ">
               <Image src="/company2.png" alt="SOCByte" fill className="object-contain p-0.5" />
             </div>
             <div className="min-w-0">
               <p className="font-heading text-xs font-semibold text-foreground leading-none">SOCByte</p>
-              <p className="font-body text-[10px] text-[#525252] mt-0.5">Full-Stack Dev · 2025–Present</p>
+              <p className="font-body text-[10px] text-muted-foreground mt-0.5">Full-Stack Dev · 2025–Present</p>
             </div>
             <span className="ml-auto font-body text-[9px] px-1.5 py-0.5 rounded-sm bg-primary/10 text-primary border border-primary/20 uppercase tracking-wider shrink-0">
               Now
@@ -145,13 +145,13 @@ export default function AboutSection() {
           </div>
 
           {/* TemplateSpace — previous */}
-          <div className="flex items-center gap-3 p-3 bg-[#161616] border border-[#1f1f1f] rounded-sm">
+          <div className="flex items-center gap-3 p-3 bg-secondary border border-border rounded-sm">
             <div className="relative w-8 h-8 rounded-full overflow-hidden  shrink-0 ">
               <Image src="/company.png" alt="TemplateSpace" fill className="object-contain p-0.5" />
             </div>
             <div className="min-w-0">
               <p className="font-heading text-xs font-semibold text-foreground leading-none">TemplateSpace</p>
-              <p className="font-body text-[10px] text-[#525252] mt-0.5">Junior Frontend Dev · 2024</p>
+              <p className="font-body text-[10px] text-muted-foreground mt-0.5">Junior Frontend Dev · 2024</p>
             </div>
           </div>
         </motion.div>
@@ -163,7 +163,7 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300"
+          className="bg-card border border-border hover:border-border rounded-sm p-6 transition-colors duration-300"
         >
           <div className="flex items-center gap-2 mb-3">
             <span className="relative flex h-2.5 w-2.5">
@@ -178,7 +178,7 @@ export default function AboutSection() {
           <p className="font-heading text-sm font-semibold text-foreground mb-1">
             Full-time &amp; Freelance
           </p>
-          <p className="font-body text-xs text-[#a3a3a3] leading-relaxed">
+          <p className="font-body text-xs text-muted-foreground leading-relaxed">
             Looking for senior frontend / full-stack roles or exciting freelance
             projects. Let&apos;s build something.
           </p>
@@ -191,25 +191,25 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm p-6 transition-colors duration-300 space-y-4"
+          className="bg-card border border-border hover:border-border rounded-sm p-6 transition-colors duration-300 space-y-4"
         >
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0">
+            <div className="p-2 rounded-sm bg-secondary border border-border text-primary shrink-0">
               <MapPin size={14} />
             </div>
             <div>
-              <p className="font-body text-[10px] uppercase tracking-widest text-[#525252]">
+              <p className="font-body text-[10px] uppercase tracking-widest text-muted-foreground">
                 Location
               </p>
               <p className="font-body text-sm text-foreground">Karachi, Pakistan</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0">
+            <div className="p-2 rounded-sm bg-secondary border border-border text-primary shrink-0">
               <Mail size={14} />
             </div>
             <div>
-              <p className="font-body text-[10px] uppercase tracking-widest text-[#525252]">
+              <p className="font-body text-[10px] uppercase tracking-widest text-muted-foreground">
                 Email
               </p>
               <a

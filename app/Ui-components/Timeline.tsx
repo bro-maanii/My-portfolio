@@ -67,7 +67,7 @@ export default function ProfessionalTimeline() {
       </motion.div>
 
       {/* Table */}
-      <div className="divide-y divide-[#1f1f1f]">
+      <div className="divide-y divide-border">
         {timelineData.map((item, index) => (
           <motion.div
             key={index}
@@ -96,7 +96,7 @@ export default function ProfessionalTimeline() {
               <p className="font-body text-xs text-primary mb-3">{item.organization}</p>
               <ul className="space-y-1.5">
                 {item.highlights.map((h, hi) => (
-                  <li key={hi} className="font-body text-xs text-[#a3a3a3] leading-relaxed pl-3 border-l border-[#2a2a2a]">
+                  <li key={hi} className="font-body text-xs text-muted-foreground leading-relaxed pl-3 border-l border-border">
                     {h}
                   </li>
                 ))}
@@ -104,7 +104,7 @@ export default function ProfessionalTimeline() {
             </div>
 
             {/* Full period — desktop only */}
-            <span className="hidden md:block font-body text-[11px] text-[#525252] pt-0.5 text-right leading-relaxed">
+            <span className="hidden md:block font-body text-[11px] text-muted-foreground pt-0.5 text-right leading-relaxed">
               {item.period}
             </span>
           </motion.div>

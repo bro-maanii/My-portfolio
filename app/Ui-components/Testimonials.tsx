@@ -39,7 +39,7 @@ function TestimonialCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.9, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-      className="relative bg-[#111111] border border-[#1f1f1f] hover:border-primary/30 rounded-sm p-7 md:p-8 flex flex-col group transition-colors duration-300"
+      className="relative bg-card border border-border hover:border-primary/30 rounded-sm p-7 md:p-8 flex flex-col group transition-colors duration-300"
     >
       {/* Corner accents */}
       <div className="pointer-events-none absolute inset-0 hidden group-hover:block">
@@ -55,12 +55,12 @@ function TestimonialCard({
       </span>
 
       {/* Quote */}
-      <blockquote className="relative z-10 font-body text-sm text-[#a3a3a3] leading-relaxed flex-1 pt-6 italic">
+      <blockquote className="relative z-10 font-body text-sm text-muted-foreground leading-relaxed flex-1 pt-6 italic">
         {t.quote}
       </blockquote>
 
       {/* Attribution */}
-      <div className="flex items-center gap-3 pt-6 mt-6 border-t border-[#1f1f1f]">
+      <div className="flex items-center gap-3 pt-6 mt-6 border-t border-border">
         {/* Avatar initials */}
         <div className="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
           <span className="font-heading text-xs font-bold text-primary">{t.initials}</span>
@@ -69,10 +69,10 @@ function TestimonialCard({
           <p className="font-heading text-sm font-semibold text-foreground leading-none">
             {t.author}
           </p>
-          <p className="font-body text-[11px] text-[#525252] mt-0.5">
+          <p className="font-body text-[11px] text-muted-foreground mt-0.5">
             {t.role} · {t.company}
           </p>
-          <p className="font-body text-[10px] text-[#525252]/70 mt-0.5">{t.relationship}</p>
+          <p className="font-body text-[10px] text-muted-foreground/70 mt-0.5">{t.relationship}</p>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
           {t.source === "LinkedIn" ? (
@@ -80,7 +80,7 @@ function TestimonialCard({
           ) : (
             <Star size={13} className="text-primary" />
           )}
-          <span className="font-body text-[10px] uppercase tracking-widest text-[#525252]">
+          <span className="font-body text-[10px] uppercase tracking-widest text-muted-foreground">
             {t.source}
           </span>
         </div>
@@ -103,7 +103,7 @@ export default function Testimonials() {
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">
           In Their Words
         </h2>
-        <p className="font-body text-sm text-[#a3a3a3] mt-3">
+        <p className="font-body text-sm text-muted-foreground mt-3">
           Honest feedback from the people I&apos;ve had the privilege of working with.
         </p>
       </motion.div>

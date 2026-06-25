@@ -17,7 +17,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#1f1f1f] mt-8">
+    <footer className="border-t border-border mt-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
         {/* Social dock — centered */}
@@ -35,7 +35,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="font-body text-[11px] font-medium uppercase tracking-widest text-[#525252] hover:text-foreground transition-colors"
+                className="font-body text-[11px] font-medium uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
@@ -53,7 +53,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-[#525252] hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Icon size={16} />
                 </Link>
@@ -62,8 +62,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-[#1f1f1f] text-center">
-          <p className="font-body text-xs text-[#525252]">
+        <div className="mt-6 pt-4 border-t border-border text-center">
+          <p className="font-body text-xs text-muted-foreground">
             &copy; 2026 Eman Ali Abbasi. All rights reserved.
           </p>
         </div>

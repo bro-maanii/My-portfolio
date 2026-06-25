@@ -145,7 +145,7 @@ export default function Portfolio() {
       >
         <span className="section-label">Portfolio</span>
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">My Work</h2>
-        <p className="font-body text-sm text-[#a3a3a3] mt-3 max-w-md">
+        <p className="font-body text-sm text-muted-foreground mt-3 max-w-md">
           Production-grade work across web development and AI — every project ships to real users.
         </p>
       </motion.div>
@@ -157,7 +157,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-10 bg-[#111111] border border-[#1f1f1f] rounded-sm overflow-hidden hover:border-[#2a2a2a] transition-colors"
+          className="mb-10 bg-card border border-border rounded-sm overflow-hidden hover:border-border transition-colors"
         >
           <div className="flex flex-col md:flex-row">
             {/* Image */}
@@ -182,21 +182,21 @@ export default function Portfolio() {
                   <span className="font-body text-[9px] font-semibold uppercase tracking-widest text-primary bg-primary/10 px-2.5 py-1 rounded-sm border border-primary/20">
                     Featured Project
                   </span>
-                  <span className="font-body text-[9px] font-semibold uppercase tracking-widest text-[#a3a3a3] bg-[#161616] px-2.5 py-1 rounded-sm border border-[#1f1f1f]">
+                  <span className="font-body text-[9px] font-semibold uppercase tracking-widest text-muted-foreground bg-secondary px-2.5 py-1 rounded-sm border border-border">
                     {featured.category}
                   </span>
                 </div>
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-3 leading-snug">
                   {featured.title}
                 </h3>
-                <p className="font-body text-sm text-[#a3a3a3] leading-relaxed mb-5">
+                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5">
                   {featured.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {featured.tech.map((t) => (
                     <span
                       key={t}
-                      className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-[#1f1f1f] bg-[#161616] text-[#a3a3a3]"
+                      className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-border bg-secondary text-muted-foreground"
                     >
                       {t}
                     </span>

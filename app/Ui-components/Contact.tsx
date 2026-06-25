@@ -38,7 +38,7 @@ export default function Contact() {
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight">
               Let&apos;s Build<br />Something Together.
             </h2>
-            <p className="font-body text-sm text-[#a3a3a3] mt-3 leading-relaxed">
+            <p className="font-body text-sm text-muted-foreground mt-3 leading-relaxed">
               Available for full-time roles, contracts, and freelance projects.
             </p>
           </div>
@@ -47,16 +47,16 @@ export default function Contact() {
             {contactItems.map((c) => {
               const Icon = c.icon
               const inner = (
-                <div className="flex items-center gap-3.5 p-4 bg-[#111111] border border-[#1f1f1f] hover:border-[#2a2a2a] rounded-sm transition-colors group">
-                  <div className="p-2.5 rounded-sm bg-[#161616] border border-[#1f1f1f] text-primary shrink-0 group-hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3.5 p-4 bg-card border border-border hover:border-border rounded-sm transition-colors group">
+                  <div className="p-2.5 rounded-sm bg-secondary border border-border text-primary shrink-0 group-hover:border-primary/30 transition-colors">
                     <Icon size={15} />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-body text-[10px] uppercase tracking-widest text-[#525252] mb-0.5">{c.label}</p>
+                    <p className="font-body text-[10px] uppercase tracking-widest text-muted-foreground mb-0.5">{c.label}</p>
                     <p className="font-body text-sm font-medium text-foreground truncate">{c.value}</p>
                   </div>
                   {c.href && (
-                    <ArrowUpRight size={13} className="ml-auto text-[#525252] group-hover:text-primary transition-colors shrink-0" />
+                    <ArrowUpRight size={13} className="ml-auto text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                   )}
                 </div>
               )
