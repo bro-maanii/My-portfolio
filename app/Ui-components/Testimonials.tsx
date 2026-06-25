@@ -6,17 +6,17 @@ import { Linkedin, Star } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "I've had the privilege of working with Eman, and I can confidently say that he is an exceptional software engineer. His expertise in frontend development, particularly with VueJS is truly impressive. Eman has a strong problem-solving mindset and consistently delivers high-quality, scalable solutions. His attention to detail ensures seamless integration between frontend and backend systems. Beyond his technical skills, he is a fantastic team player — always willing to collaborate, share knowledge, and support others. If you're looking for a skilled and dedicated developer who thrives in innovation and continuous learning, I highly recommend Eman. He would be a valuable asset to any team!",
+      "I've had the privilege of working with Eman, and I can confidently say that he is an exceptional software engineer. His expertise in frontend development, particularly with VueJS is truly impressive. Eman has a strong problem-solving mindset and consistently delivers high-quality, scalable solutions. His attention to detail ensures seamless integration between frontend and backend systems. Beyond his technical skills, he is a fantastic team player always willing to collaborate, share knowledge, and support others. If you're looking for a skilled and dedicated developer who thrives in innovation and continuous learning, I highly recommend Eman. He would be a valuable asset to any team!",
     author: "Muhammad Arsalan",
     role: "Senior Fullstack Developer",
-    company: "SOCByte",
+    company: "TemplateSpace",
     relationship: "Direct Colleague · Feb 2025",
     source: "LinkedIn",
     initials: "MA",
   },
   {
     quote:
-      "Working with Eman was an absolute pleasure from start to finish. He took our vague brief and turned it into a polished, fast, and beautifully crafted web application in record time. His communication was impeccable throughout — proactive updates, clear explanations, and zero surprises. The end product exceeded every expectation. We'll definitely be working with Eman again on our next build.",
+      "Working with Eman was an absolute pleasure from start to finish. He took our vague brief and turned it into a polished, fast, and beautifully crafted web application in record time. His communication was impeccable throughout proactive updates, clear explanations, and zero surprises. The end product exceeded every expectation. We'll definitely be working with Eman again on our next build.",
     author: "James Whitfield",
     role: "Founder & CEO",
     company: "Northcraft Digital",

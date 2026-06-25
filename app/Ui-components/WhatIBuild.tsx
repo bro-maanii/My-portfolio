@@ -9,21 +9,21 @@ const services = [
     icon: Monitor,
     title: "Frontend Engineering",
     description:
-      "Pixel-perfect, high-performance UIs built with React.js, Next.js, and TypeScript. I own the full frontend — from architecture to deployment, design system to Lighthouse scores — no handholding needed.",
+      "Pixel-perfect, high-performance UIs built with React.js, Next.js, and TypeScript. I own the full frontend from architecture to deployment, design system to Lighthouse scores no handholding needed.",
     tech: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
   },
   {
     icon: Server,
     title: "Full-Stack APIs",
     description:
-      "End-to-end backend — REST API design, database modelling, authentication, and production deployments. Node.js, FastAPI, MongoDB/PostgreSQL, containerised with Docker, hosted on AWS.",
+      "End-to-end backend REST API design, database modelling, authentication, and production deployments. Node.js, FastAPI, MongoDB/PostgreSQL, containerised with Docker, hosted on AWS.",
     tech: ["Node.js", "FastAPI", "MongoDB", "PostgreSQL", "Docker", "AWS"],
   },
   {
     icon: Brain,
     title: "AI Integration",
     description:
-      "AI-powered features using OpenAI, DeepSeek, and Python — intelligent chatbots, automated report generators, and personalised recommendation engines that ship as real product features.",
+      "AI-powered features using OpenAI, DeepSeek, and Python intelligent chatbots, automated report generators, and personalised recommendation engines that ship as real product features.",
     tech: ["Python", "OpenAI", "DeepSeek", "FastAPI", "Streamlit"],
   },
 ]
@@ -43,7 +43,7 @@ export default function WhatIBuild() {
         <span className="section-label">Services</span>
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">What I Build</h2>
         <p className="font-body text-sm text-muted-foreground mt-3 max-w-md">
-          Three disciplines, one engineer. Full stack — from pixel to production.
+          Three disciplines, one engineer. Full stack from pixel to production.
         </p>
       </motion.div>
 

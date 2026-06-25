@@ -72,7 +72,7 @@ export default function Certifications() {
         <span className="section-label">Credentials</span>
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">Certifications</h2>
         <p className="font-body text-sm text-muted-foreground mt-3">
-          Verified credentials from world-class institutions — click any card to view the certificate.
+          Verified credentials from world-class institutions click any card to view the certificate.
         </p>
       </motion.div>
 

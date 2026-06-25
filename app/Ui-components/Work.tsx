@@ -146,7 +146,7 @@ export default function Portfolio() {
         <span className="section-label">Portfolio</span>
         <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">My Work</h2>
         <p className="font-body text-sm text-muted-foreground mt-3 max-w-md">
-          Production-grade work across web development and AI — every project ships to real users.
+          Production-grade work across web development and AI every project ships to real users.
         </p>
       </motion.div>
 

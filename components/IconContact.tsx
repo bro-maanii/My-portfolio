@@ -34,7 +34,7 @@ export function FloatingDockDemo() {
         icon: (
             <IconBrandInstagram className="h-full w-full text-red-500 " />
         ),
-        href: "https://www.instagram.com/maani__31/",
+        href: "https://www.instagram.com/maani.tsx/",
     },
 
     {

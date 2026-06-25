@@ -11,7 +11,7 @@ const timelineData = [
     year: "2025",
     current: true,
     highlights: [
-      "Sole frontend engineer — built entire cybersecurity platform UI from scratch, no Figma, no design reference; delivered production-ready on schedule.",
+      "Sole frontend engineer built entire cybersecurity platform UI from scratch, no Figma, no design reference; delivered production ready on schedule.",
       "Integrated all platform REST APIs end-to-end with robust error handling, loading states, and data consistency.",
       "Engineered backend modules for Threat Intelligence, Asset Management, and Reporting alongside the founding team.",
     ],
@@ -35,7 +35,7 @@ const timelineData = [
     current: false,
     highlights: [
       "Delivered 5+ client projects including e-commerce platforms, portfolio sites, and internal dashboards.",
-      "Managed complete project lifecycle — requirements, design, development, and deployment.",
+      "Managed complete project lifecycle requirements, design, development, and deployment.",
     ],
   },
   {

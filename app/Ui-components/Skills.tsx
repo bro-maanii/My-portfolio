@@ -47,7 +47,7 @@ export default function SkillsSection() {
           My Skills
         </h2>
         <p className="font-body text-sm text-muted-foreground mt-3">
-          30+ technologies across the full stack — from pixel to production.
+          30+ technologies across the full stack from pixel to production.
         </p>
       </motion.div>
 

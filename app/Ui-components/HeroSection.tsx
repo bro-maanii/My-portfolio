@@ -52,7 +52,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         {/* Left column */}
         <motion.div
           variants={container}
@@ -85,7 +85,7 @@ export default function HeroSection() {
             className="font-body text-base text-muted-foreground max-w-md leading-relaxed mb-8"
           >
             I build scalable web apps, sleek UIs, and full-stack products that
-            turn ideas into revenue — for startups and enterprises alike.
+            turn ideas into revenue for startups and enterprises alike.
           </motion.p>
 
 
@@ -144,7 +144,7 @@ export default function HeroSection() {
               src="/p1.png"
               alt="Eman Ali Abbasi"
               fill
-              className="object-cover object-center pt-4"
+              className="object-cover pt-4"
               priority
             />
           </div>

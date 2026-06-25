@@ -15,9 +15,9 @@ const ads = [
     tags: ["Skincare", "Beauty", "AI Voiceover"],
     script: [
       { label: "Hook",     text: "Stop. If your face looks like a frying pan by noon, keep watching." },
-      { label: "Problem",  text: "You wash your face, feel fresh for like an hour, then boom — shine is back, pores are visible, and that one acne mark from three months ago is still just... sitting there." },
-      { label: "Solution", text: "This is Niacinamide 10% with Zinc — two drops, that's it. It actually goes after the oil at the root, tightens pores over time, and fades those stubborn marks without bleaching your skin." },
-      { label: "Proof",    text: "Over a hundred Pakistani girls have already switched — and the biggest thing they say? Their makeup actually stays on now." },
+      { label: "Problem",  text: "You wash your face, feel fresh for like an hour, then boom shine is back, pores are visible, and that one acne mark from three months ago is still just... sitting there." },
+      { label: "Solution", text: "This is Niacinamide 10% with Zinc two drops, that's it. It actually goes after the oil at the root, tightens pores over time, and fades those stubborn marks without bleaching your skin." },
+      { label: "Proof",    text: "Over a hundred Pakistani girls have already switched and the biggest thing they say? Their makeup actually stays on now." },
       { label: "CTA",      text: "Link's right below. Order today, genuine imported stock, delivered to your door." },
     ],
   },
@@ -25,40 +25,40 @@ const ads = [
     id: 2,
     brand: "FOXS Clothing",
     category: "Fashion",
-    hook: "Okay wait — I need to show you what I just found at FOXS.",
+    hook: "Okay wait I need to show you what I just found at FOXS.",
     video: "/UGC_ads/dress  FOXS  cloths.mp4",
     thumbnail: null,
     tags: ["Fashion", "Lifestyle", "AI Script"],
     script: [
-      { label: "Hook",       text: "Okay wait — I need to show you what I just found at FOXS." },
-      { label: "Look 1",     text: "First look — this cream bomber. It's giving expensive without the price tag. Under a hundred dollars." },
-      { label: "Look 2",     text: "This apricot tweed with sequins — I wore it to dinner and everyone asked. Seventy-nine dollars." },
-      { label: "Look 3",     text: "This lace sleeve denim jacket — casual but it's got that little extra thing. Perfect for the weekend." },
-      { label: "Look 4",     text: "And when it actually gets cold — this faux fur trim jacket is everything. Not puffy, not frumpy. Seventy-nine dollars." },
-      { label: "CTA",        text: "Everything's on foxs.com — free shipping over ninety-nine. Link is right below." },
+      { label: "Hook",       text: "Okay wait I need to show you what I just found at FOXS." },
+      { label: "Look 1",     text: "First look this cream bomber. It's giving expensive without the price tag. Under a hundred dollars." },
+      { label: "Look 2",     text: "This apricot tweed with sequins I wore it to dinner and everyone asked. Seventy-nine dollars." },
+      { label: "Look 3",     text: "This lace sleeve denim jacket casual but it's got that little extra thing. Perfect for the weekend." },
+      { label: "Look 4",     text: "And when it actually gets cold this faux fur trim jacket is everything. Not puffy, not frumpy. Seventy-nine dollars." },
+      { label: "CTA",        text: "Everything's on foxs.com free shipping over ninety-nine. Link is right below." },
     ],
   },
   {
     id: 3,
     brand: "Crème de la Mer",
     category: "Luxury Skincare",
-    hook: "If your skin is constantly red and angry no matter what you put on it — stop scrolling.",
+    hook: "If your skin is constantly red and angry no matter what you put on it stop scrolling.",
     video: "/UGC_ads/Crème de la Mer.mp4",
     thumbnail: null,
     tags: ["Luxury", "Skincare", "AI Voiceover"],
     script: [
-      { label: "Hook",     text: "If your skin is constantly red and angry no matter what you put on it — stop scrolling." },
-      { label: "Problem",  text: "I was doing everything right — gentle cleanser, SPF, the whole routine — and my skin still felt raw, tight, and irritated by noon. Like my barrier was just… broken." },
+      { label: "Hook",     text: "If your skin is constantly red and angry no matter what you put on it stop scrolling." },
+      { label: "Problem",  text: "I was doing everything right gentle cleanser, SPF, the whole routine and my skin still felt raw, tight, and irritated by noon. Like my barrier was just… broken." },
       { label: "Solution", text: "A friend told me to try La Mer's Crème de la Mer. You warm a tiny bit between your fingers, it melts into your skin, and the redness just... calms." },
-      { label: "Proof",    text: "The formula uses Miracle Broth™ — fermented for four months, clinically shown to improve skin resilience by 81% in two weeks. That's why dermatologists have recommended this for 50 years." },
-      { label: "CTA",      text: "Link's below. Try it for two weeks — your skin will tell you everything you need to know." },
+      { label: "Proof",    text: "The formula uses Miracle Broth™ fermented for four months, clinically shown to improve skin resilience by 81% in two weeks. That's why dermatologists have recommended this for 50 years." },
+      { label: "CTA",      text: "Link's below. Try it for two weeks your skin will tell you everything you need to know." },
     ],
   },
   {
     id: 4,
     brand: "Coca-Cola",
     category: "Beverage",
-    hook: "No voiceover — pure visuals. A cinematic AI-generated brand film.",
+    hook: "No voiceover pure visuals. A cinematic AI-generated brand film.",
     video: "/UGC_ads/coca cola.mp4",
     thumbnail: null,
     tags: ["Beverage", "Cinematic", "No Voiceover"],
@@ -99,7 +99,7 @@ export default function UGCAds() {
         <div className="flex items-center gap-2 mt-3">
           <Sparkles size={13} className="text-primary shrink-0" />
           <p className="font-body text-sm text-muted-foreground">
-            Script, voiceover, scenes, and editing — all made with AI tools.
+            Script, voiceover, scenes, and editing all made with AI tools.
           </p>
         </div>
       </motion.div>
@@ -241,7 +241,7 @@ export default function UGCAds() {
                   <div className="flex items-center gap-2 mt-4 p-4 bg-secondary border border-border rounded-sm">
                     <Sparkles size={13} className="text-primary shrink-0" />
                     <p className="font-body text-sm text-muted-foreground italic">
-                      Pure cinematic visuals — no voiceover. Scene direction and editing entirely AI-generated.
+                      Pure cinematic visuals no voiceover. Scene direction and editing entirely AI-generated.
                     </p>
                   </div>
                 )}

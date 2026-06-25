@@ -137,7 +137,7 @@ export default function AboutSection() {
             </div>
             <div className="min-w-0">
               <p className="font-heading text-xs font-semibold text-foreground leading-none">SOCByte</p>
-              <p className="font-body text-[10px] text-muted-foreground mt-0.5">Full-Stack Dev · 2025–Present</p>
+              <p className="font-body text-[10px] text-muted-foreground mt-0.5">Software Engineer · 2025–Present</p>
             </div>
             <span className="ml-auto font-body text-[9px] px-1.5 py-0.5 rounded-sm bg-primary/10 text-primary border border-primary/20 uppercase tracking-wider shrink-0">
               Now
