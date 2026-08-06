@@ -23,6 +23,15 @@ const featured = {
 /* ── Remaining projects ────────────────────────────────────────── */
 const portfolioItems = [
   {
+    id: 11,
+    title: "AI Job Assistant",
+    category: "WEB DEV",
+    image: "/ProjectsImages/AiJobhelper.png",
+    Liveurl: "https://ai-job-helper-sigma.vercel.app/login",
+    description: "Production-ready AI SaaS that automates job applications — generates ATS-optimised resumes, cover letters, HR emails, LinkedIn messages, and job match analysis from a single master resume.",
+    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Gemini AI"],
+  },
+  {
     id: 1,
     title: "Generic Medicine Finder",
     category: "WEB DEV",

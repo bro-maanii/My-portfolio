@@ -213,10 +213,10 @@ export default function AboutSection() {
                 Email
               </p>
               <a
-                href="mailto:eman.abbasi@socbyte.ai"
+                href="mailto:emanaliabbasi31@gmail.com"
                 className="font-body text-sm text-foreground hover:text-primary transition-colors"
               >
-                eman.abbasi@socbyte.ai
+                emanaliabbasi31@gmail.com
               </a>
             </div>
           </div>
