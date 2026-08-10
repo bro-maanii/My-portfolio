@@ -8,25 +8,32 @@ const categories = [
     skills: [
       "HTML", "CSS", "JavaScript", "TypeScript", "React.js", "Next.js",
       "Vue.js", "Tailwind CSS", "Bootstrap", "Redux Toolkit",
-      "Framer Motion", "Material UI", "Webflow",
+      "Framer Motion", "GSAP", "Material UI", "Webflow",
     ],
   },
   {
     label: "Backend & APIs",
     skills: [
       "Node.js", "Express.js", "Python", "FastAPI",
-      "REST API Design", "JWT & Auth", "Streamlit",
+      "REST API Design", "JWT & Auth", "Google Maps API", "Streamlit",
     ],
   },
   {
     label: "Databases",
-    skills: ["MongoDB", "PostgreSQL", "SQL", "Redis", "Firebase"],
+    skills: ["MongoDB", "PostgreSQL", "SQL", "Prisma", "Redis", "Firebase"],
+  },
+  {
+    label: "AI & Dev Tooling",
+    skills: [
+      "Claude", "Cursor", "Antigravity",
+      "OpenAI & DeepSeek", "Gemini AI",
+    ],
   },
   {
     label: "DevOps & Tools",
     skills: [
       "Docker", "AWS", "Git", "GitHub", "Vercel",
-      "Postman", "Sanity CMS", "OpenAI & DeepSeek", "Figma",
+      "Postman", "Sanity CMS", "Cloudinary", "Figma",
     ],
   },
 ];
@@ -47,7 +54,7 @@ export default function SkillsSection() {
           My Skills
         </h2>
         <p className="font-body text-sm text-muted-foreground mt-3">
-          30+ technologies across the full stack from pixel to production.
+          40+ technologies across the full stack from pixel to production.
         </p>
       </motion.div>
 

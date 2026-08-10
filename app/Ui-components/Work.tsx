@@ -41,6 +41,15 @@ const portfolioItems = [
     tech: ["JavaScript", "MongoDB", "Node.js", "Google Maps API"],
   },
   {
+    id: 12,
+    title: "Lumen Studio — Creative Agency Site",
+    category: "WEB DEV",
+    image: "/ProjectsImages/LumenStudio_web.png",
+    Liveurl: "https://creative-digital-agency-website.vercel.app/",
+    description: "Motion-led agency site with 8 sections, each on a different compositional pattern — scroll-driven timelines, clip-path reveals and pointer parallax. All 12 artwork files are hand-generated SVG geometry: zero external images.",
+    tech: ["Next.js", "React 19", "TypeScript", "Tailwind v4", "GSAP"],
+  },
+  {
     id: 2,
     title: "Photo App",
     category: "WEB DEV",
@@ -102,7 +111,7 @@ const portfolioItems = [
   },
   {
     id: 8,
-    title: "Animated Music Website",
+    title: "Harmonia",
     category: "WEB DEV",
     image: "/ProjectsImages/music_web.PNG",
     Codeurl: "https://github.com/bro-maanii/Music-Academy",
