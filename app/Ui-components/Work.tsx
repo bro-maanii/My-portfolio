@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SectionHeading, Accent } from "@/components/section-heading";
 import { PortfolioItem } from "@/components/portfolio-item";
 import { TabSystem } from "@/components/tab-system";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
+import { BrowserFrame } from "@/components/browser-frame";
 
 /* ── Featured project (Career Pipeline) ───────────────────────── */
 const featured = {
@@ -198,103 +199,100 @@ export default function Portfolio() {
 
   const showFeatured = activeTab === "ALL" || activeTab === "WEB DEV";
 
+  const counts = {
+    ALL: portfolioItems.length,
+    "WEB DEV": portfolioItems.filter((p) => p.category === "WEB DEV").length,
+    "AI - CHATBOT": portfolioItems.filter((p) => p.category === "AI - CHATBOT").length,
+  };
+
   return (
-    <section id="work" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+    <section id="work" className="py-14 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
 
       {/* Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-12"
-      >
-        <span className="section-label">Portfolio</span>
-        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">My Work</h2>
-        <p className="font-body text-sm text-muted-foreground mt-3 max-w-md">
-          Production-grade work across web development and AI every project ships to real users.
-        </p>
-      </motion.div>
+      <SectionHeading
+        label="Selected work"
+        title={<>Things I&apos;ve <Accent>shipped</Accent></>}
+        description="Production work across web and AI. Most of these are live; open one and click around."
+      />
 
       {/* ── Featured card ───────────────────────────────────────── */}
       {showFeatured && (
-        <motion.div
+        <motion.article
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-10 bg-card border border-border rounded-sm overflow-hidden hover:border-border transition-colors"
+          className="group mb-14 spotlight bg-card border border-border rounded-3xl shadow-lifted p-3 sm:p-4 grid lg:grid-cols-12 gap-6 lg:gap-10 overflow-hidden"
         >
-          <div className="flex flex-col md:flex-row">
-            {/* Image */}
-            <div className="relative w-full md:w-[55%] h-56 sm:h-72 md:h-auto overflow-hidden">
-              {/* Project number */}
-              <span className="absolute top-4 left-4 font-heading text-6xl font-extrabold text-white/10 leading-none select-none z-10 pointer-events-none">
-                01
-              </span>
+          {/* Screenshot on a warm stage */}
+          <div className="lg:col-span-7 relative rounded-2xl bg-gradient-to-br from-primary/25 via-secondary to-secondary p-4 sm:p-8 overflow-hidden">
+            <BrowserFrame url={featured.liveUrl} className="shadow-lifted aspect-[16/10] bg-background">
               <Image
                 src={featured.image}
-                alt={featured.title}
+                alt={`Screenshot of ${featured.title}`}
                 fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 720px"
+                className="object-cover object-top transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
-            </div>
+            </BrowserFrame>
+          </div>
 
-            {/* Content */}
-            <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="font-body text-[9px] font-semibold uppercase tracking-widest text-primary bg-primary/10 px-2.5 py-1 rounded-sm border border-primary/20">
-                    Featured Project
-                  </span>
-                  <span className="font-body text-[9px] font-semibold uppercase tracking-widest text-muted-foreground bg-secondary px-2.5 py-1 rounded-sm border border-border">
-                    {featured.category}
-                  </span>
-                </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-3 leading-snug">
-                  {featured.title}
-                </h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5">
-                  {featured.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {featured.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-border bg-secondary text-muted-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Link href={featured.liveUrl} target="_blank">
-                  <Button className="font-body gap-2 bg-primary hover:bg-primary/90 text-white rounded-sm shadow-lg shadow-primary/20 text-sm font-medium">
-                    <ExternalLink size={13} />
-                    Live Demo
-                  </Button>
-                </Link>
-                <Link href={featured.codeUrl} target="_blank">
-                  <Button variant="outline" className="font-body gap-2 rounded-sm text-sm font-medium">
-                    <Github size={13} />
-                    Code
-                  </Button>
-                </Link>
-              </div>
+          {/* Content */}
+          <div className="lg:col-span-5 flex flex-col justify-center px-3 pb-4 lg:px-0 lg:pr-6 lg:py-6">
+            <span className="inline-flex w-fit items-center gap-2 font-mono text-[11px] text-primary mb-5">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Featured project
+            </span>
+            <h3 className="font-heading text-3xl sm:text-4xl font-semibold tracking-[-0.03em] text-foreground leading-[1.05] mb-4">
+              {featured.title.split(" — ")[0]}
+              <span className="block font-serif italic font-normal text-2xl sm:text-3xl text-muted-foreground tracking-normal mt-1">
+                {featured.title.split(" — ")[1]}
+              </span>
+            </h3>
+            <p className="font-body text-[15px] text-muted-foreground leading-relaxed mb-6 max-w-[56ch]">
+              {featured.description}
+            </p>
+            <div className="flex flex-wrap gap-1.5 mb-8">
+              {featured.tech.map((t) => (
+                <span
+                  key={t}
+                  className="font-mono text-[11px] px-2.5 py-1 rounded-md border border-border bg-secondary/60 text-muted-foreground"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-5">
+              <Link
+                href={featured.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pressable inline-flex items-center gap-2 h-11 px-5 rounded-xl bg-primary text-primary-foreground font-body text-sm font-medium shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.6)] hover:brightness-110"
+              >
+                Open live site
+                <ArrowUpRight size={15} />
+              </Link>
+              <Link
+                href={featured.codeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-body text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Github size={15} />
+                View source
+              </Link>
             </div>
           </div>
-        </motion.div>
+        </motion.article>
       )}
 
       {/* ── Filter tabs ─────────────────────────────────────────── */}
-      <TabSystem activeTab={activeTab} setActiveTab={setActiveTab} />
+      <TabSystem activeTab={activeTab} setActiveTab={setActiveTab} counts={counts} />
 
       {/* ── Project grid ────────────────────────────────────────── */}
       <motion.div
         layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
       >
         <AnimatePresence>
           {filtered.map((item, i) => (

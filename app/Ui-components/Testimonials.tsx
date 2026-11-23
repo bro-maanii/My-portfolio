@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SectionHeading, Accent } from "@/components/section-heading";
 import { Linkedin, Star } from "lucide-react";
 
 const testimonials = [
@@ -16,13 +17,13 @@ const testimonials = [
   },
   {
     quote:
-      "Working with Eman was an absolute pleasure from start to finish. He took our vague brief and turned it into a polished, fast, and beautifully crafted web application in record time. His communication was impeccable throughout proactive updates, clear explanations, and zero surprises. The end product exceeded every expectation. We'll definitely be working with Eman again on our next build.",
-    author: "James Whitfield",
-    role: "Founder & CEO",
-    company: "Northcraft Digital",
-    relationship: "Freelance Client · March 2024",
-    source: "Direct",
-    initials: "JW",
+      "I had the chance to work with Eman while leading a project where he was responsible for a significant part of the technical execution, and honestly, he made my job easier. What stood out to me was how independently he worked. I didn't have to constantly explain or follow up on things — he would figure problems out, take ownership, and actually get things shipped. He was also very receptive to feedback and cared about getting things right, not just getting them done. As a lead, having someone you can trust with their part of the project makes a huge difference. Eman was that person for me, and I'd happily work with him again.",
+    author: "Hafsa Tahir",
+    role: "Project Lead",
+    company: "Ex-DigitalOcean",
+    relationship: "Managed Eman directly · Sep 2026",
+    source: "LinkedIn",
+    initials: "HT",
   },
 ];
 
@@ -39,40 +40,33 @@ function TestimonialCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.9, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-      className="relative bg-card border border-border hover:border-primary/30 rounded-sm p-7 md:p-8 flex flex-col group transition-colors duration-300"
+      className="spotlight bg-card border border-border rounded-2xl shadow-soft p-7 md:p-10 flex flex-col h-full"
     >
-      {/* Corner accents */}
-      <div className="pointer-events-none absolute inset-0 hidden group-hover:block">
-        <div className="absolute -left-[2px] -top-[2px] h-3 w-3 bg-primary/60" />
-        <div className="absolute -right-[2px] -top-[2px] h-3 w-3 bg-primary/60" />
-        <div className="absolute -left-[2px] -bottom-[2px] h-3 w-3 bg-primary/60" />
-        <div className="absolute -right-[2px] -bottom-[2px] h-3 w-3 bg-primary/60" />
-      </div>
 
       {/* Decorative quote */}
-      <span className="absolute top-4 left-6 font-heading text-7xl leading-none text-primary/12 select-none pointer-events-none">
+      <span aria-hidden="true" className="font-serif text-7xl leading-[0.6] text-primary h-8 select-none">
         &ldquo;
       </span>
 
       {/* Quote */}
-      <blockquote className="relative z-10 font-body text-sm text-muted-foreground leading-relaxed flex-1 pt-6 italic">
+      <blockquote className="font-serif text-[1.3rem] sm:text-[1.4rem] leading-[1.45] text-foreground/90 flex-1 pt-4">
         {t.quote}
       </blockquote>
 
       {/* Attribution */}
-      <div className="flex items-center gap-3 pt-6 mt-6 border-t border-border">
+      <div className="flex items-center gap-3 pt-6 mt-8 border-t border-border">
         {/* Avatar initials */}
-        <div className="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
-          <span className="font-heading text-xs font-bold text-primary">{t.initials}</span>
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary/30 to-secondary border border-border flex items-center justify-center shrink-0">
+          <span className="font-heading text-sm font-semibold text-foreground">{t.initials}</span>
         </div>
         <div className="min-w-0 flex-1">
           <p className="font-heading text-sm font-semibold text-foreground leading-none">
             {t.author}
           </p>
-          <p className="font-body text-[11px] text-muted-foreground mt-0.5">
+          <p className="font-body text-[13px] text-muted-foreground mt-1">
             {t.role} · {t.company}
           </p>
-          <p className="font-body text-[10px] text-muted-foreground/70 mt-0.5">{t.relationship}</p>
+          <p className="font-mono text-[11px] text-muted-foreground/80 mt-0.5">{t.relationship}</p>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
           {t.source === "LinkedIn" ? (
@@ -80,7 +74,7 @@ function TestimonialCard({
           ) : (
             <Star size={13} className="text-primary" />
           )}
-          <span className="font-body text-[10px] uppercase tracking-widest text-muted-foreground">
+          <span className="font-mono text-[11px] text-muted-foreground">
             {t.source}
           </span>
         </div>
@@ -91,28 +85,18 @@ function TestimonialCard({
 
 export default function Testimonials() {
   return (
-    <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-12"
-      >
-        <span className="section-label">Testimonials</span>
-        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">
-          In Their Words
-        </h2>
-        <p className="font-body text-sm text-muted-foreground mt-3">
-          Honest feedback from the people I&apos;ve had the privilege of working with.
-        </p>
-      </motion.div>
+    <section className="py-14 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+      <SectionHeading
+        label="Testimonials"
+        title={<>In their <Accent>words</Accent></>}
+        description="Feedback from people I&apos;ve worked with."
+      />
 
       <div
         className={
           testimonials.length === 1
             ? "max-w-3xl"
-            : "grid grid-cols-1 md:grid-cols-2 gap-4"
+            : "grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch"
         }
       >
         {testimonials.map((t, i) => (

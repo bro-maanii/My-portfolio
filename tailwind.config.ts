@@ -15,15 +15,27 @@ export default {
   theme: {
   	extend: {
 		fontFamily: {
-			heading: ["var(--font-syne)", "sans-serif"],
-			body: ["var(--font-dm-sans)", "sans-serif"],
+			heading: ["var(--font-geist)", "ui-sans-serif", "system-ui", "sans-serif"],
+			body: ["var(--font-geist)", "ui-sans-serif", "system-ui", "sans-serif"],
+			serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
+			mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
 		},
 		animation: {
 			scroll:
 			  "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
 			grain: "grain 8s steps(10) infinite",
+			marquee: "marquee 40s linear infinite",
+			float: "float 6s ease-in-out infinite",
 		  },
 		  keyframes: {
+			marquee: {
+			  from: { transform: "translateX(0)" },
+			  to: { transform: "translateX(-50%)" },
+			},
+			float: {
+			  "0%, 100%": { transform: "translateY(0)" },
+			  "50%": { transform: "translateY(-8px)" },
+			},
 			scroll: {
 			  to: {
 				transform: "translate(calc(-50% - 0.5rem))",

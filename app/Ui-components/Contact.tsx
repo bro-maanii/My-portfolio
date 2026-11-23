@@ -22,9 +22,9 @@ const contactItems = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-x-hidden">
+    <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 overflow-x-hidden">
 
-      <div className="grid md:grid-cols-2 gap-14">
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
         {/* Left: editorial heading + contact info */}
         <motion.div
@@ -32,14 +32,17 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-5 lg:sticky lg:top-28"
         >
-          <div className="mb-8">
+          <div className="mb-10">
             <span className="section-label">Contact</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight">
-              Let&apos;s Build<br />Something Together.
+            <h2 className="font-heading text-[clamp(2.5rem,5.5vw,4rem)] font-semibold tracking-[-0.045em] text-foreground leading-[1]">
+              Let&apos;s build something{" "}
+              <span className="font-serif italic font-normal tracking-[-0.01em] text-primary">together.</span>
             </h2>
-            <p className="font-body text-sm text-muted-foreground mt-3 leading-relaxed">
-              Available for full-time roles, contracts, and freelance projects.
+            <p className="font-body text-base text-muted-foreground mt-5 leading-relaxed max-w-[42ch]">
+              Open to full-time roles, contracts and freelance projects. Tell me what
+              you&apos;re working on and I&apos;ll get back to you within a day or two.
             </p>
           </div>
 
@@ -47,12 +50,12 @@ export default function Contact() {
             {contactItems.map((c) => {
               const Icon = c.icon
               const inner = (
-                <div className="flex items-center gap-3.5 p-4 bg-card border border-border hover:border-border rounded-sm transition-colors group">
-                  <div className="p-2.5 rounded-sm bg-secondary border border-border text-primary shrink-0 group-hover:border-primary/30 transition-colors">
+                <div className="spotlight group flex items-center gap-3.5 p-4 bg-card border border-border rounded-2xl shadow-soft">
+                  <div className="p-2.5 rounded-lg bg-secondary border border-border text-primary shrink-0 group-hover:border-primary/30 transition-colors">
                     <Icon size={15} />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-body text-[10px] uppercase tracking-widest text-muted-foreground mb-0.5">{c.label}</p>
+                    <p className="font-mono text-[11px] text-muted-foreground mb-0.5">{c.label}</p>
                     <p className="font-body text-sm font-medium text-foreground truncate">{c.value}</p>
                   </div>
                   {c.href && (
@@ -75,8 +78,10 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-7 bg-card border border-border rounded-3xl shadow-lifted p-6 sm:p-10"
         >
-          <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-primary mb-5">Send a message</p>
+          <p className="font-heading text-xl font-semibold tracking-tight text-foreground mb-1">Send a message</p>
+          <p className="font-body text-sm text-muted-foreground mb-7">Prefer email? Use the address on the left.</p>
           <ContactForm />
         </motion.div>
 

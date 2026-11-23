@@ -15,7 +15,7 @@ export default function ContactForm() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
-          <Label htmlFor="name" className="text-sm font-semibold">
+          <Label htmlFor="name" className="text-[13px] font-medium text-muted-foreground">
             Name
           </Label>
           <Input
@@ -24,11 +24,11 @@ export default function ContactForm() {
             id="name"
             placeholder="Your name"
             required
-            className="focus-visible:ring-primary/20 focus-visible:border-primary"
+            className="h-11 rounded-xl bg-background px-3.5 text-[15px] focus-visible:ring-primary/20 focus-visible:border-primary"
           />
         </div>
         <div className="space-y-1.5">
-          <Label htmlFor="email" className="text-sm font-semibold">
+          <Label htmlFor="email" className="text-[13px] font-medium text-muted-foreground">
             Email
           </Label>
           <Input
@@ -37,13 +37,13 @@ export default function ContactForm() {
             name="email"
             placeholder="your@email.com"
             required
-            className="focus-visible:ring-primary/20 focus-visible:border-primary"
+            className="h-11 rounded-xl bg-background px-3.5 text-[15px] focus-visible:ring-primary/20 focus-visible:border-primary"
           />
         </div>
       </div>
 
       <div className="space-y-1.5">
-        <Label htmlFor="subject" className="text-sm font-semibold">
+        <Label htmlFor="subject" className="text-[13px] font-medium text-muted-foreground">
           Subject
         </Label>
         <Input
@@ -52,12 +52,12 @@ export default function ContactForm() {
           name="subject"
           placeholder="What's this about?"
           required
-          className="focus-visible:ring-primary/20 focus-visible:border-primary"
+          className="h-11 rounded-xl bg-background px-3.5 text-[15px] focus-visible:ring-primary/20 focus-visible:border-primary"
         />
       </div>
 
       <div className="space-y-1.5">
-        <Label htmlFor="message" className="text-sm font-semibold">
+        <Label htmlFor="message" className="text-[13px] font-medium text-muted-foreground">
           Message
         </Label>
         <Textarea
@@ -65,13 +65,13 @@ export default function ContactForm() {
           name="message"
           placeholder="Tell me about your project or opportunity..."
           required
-          className="min-h-[150px] resize-none focus-visible:ring-primary/20 focus-visible:border-primary"
+          className="min-h-[160px] rounded-xl bg-background px-3.5 py-3 text-[15px] resize-none focus-visible:ring-primary/20 focus-visible:border-primary"
         />
       </div>
 
       <Button
         type="submit"
-        className="w-full gap-2 bg-primary hover:bg-primary/90 text-white rounded-sm shadow-lg shadow-primary/20 font-body text-sm font-medium transition-all"
+        className="w-full h-12 gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.6)] pressable font-body text-[15px] font-medium hover:brightness-110"
         onClick={(e) => {
           e.preventDefault();
           const form = (e.target as HTMLElement).closest("form");

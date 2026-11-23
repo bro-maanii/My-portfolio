@@ -15,16 +15,18 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <WhatIBuild />
-      <SkillsSection />
-      <ProfessionalTimeline />
-      <Testimonials />
-      <Certifications />
-      <Portfolio />
-      <UGCAds />
-      <Contact />
+      <main id="main">
+        <HeroSection />
+        <AboutSection />
+        <WhatIBuild />
+        <SkillsSection />
+        <ProfessionalTimeline />
+        <Portfolio />
+        <UGCAds />
+        <Testimonials />
+        <Certifications />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

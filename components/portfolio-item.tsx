@@ -3,7 +3,8 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { ExternalLink, Github } from "lucide-react"
+import { ArrowUpRight, Github } from "lucide-react"
+import { BrowserFrame } from "@/components/browser-frame"
 
 interface PortfolioItemProps {
   item: {
@@ -19,92 +20,85 @@ interface PortfolioItemProps {
 }
 
 export function PortfolioItem({ item, index }: PortfolioItemProps) {
+  const isAI = item.category.startsWith("AI")
+
   return (
-    <motion.div
+    <motion.article
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative bg-card border border-border rounded-sm overflow-hidden hover:border-primary/30 transition-all duration-300 flex flex-col"
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="spotlight group bg-card border border-border rounded-2xl shadow-soft p-3 flex flex-col hover:-translate-y-1 hover:shadow-lifted transition-[transform,box-shadow] duration-500"
     >
-      {/* Corner accents on hover */}
-      <div className="pointer-events-none absolute inset-0 z-20 hidden group-hover:block">
-        <div className="absolute -left-[2px] -top-[2px] h-3 w-3 bg-primary/70" />
-        <div className="absolute -right-[2px] -top-[2px] h-3 w-3 bg-primary/70" />
-        <div className="absolute -left-[2px] -bottom-[2px] h-3 w-3 bg-primary/70" />
-        <div className="absolute -right-[2px] -bottom-[2px] h-3 w-3 bg-primary/70" />
-      </div>
-
-      {/* Image + hover overlay */}
-      <div className="relative overflow-hidden h-48 shrink-0">
+      {/* Screenshot inside browser chrome */}
+      <BrowserFrame url={item.Liveurl} className="h-52 shrink-0">
         <Image
           src={item.image}
-          alt={item.title}
+          alt={`Screenshot of ${item.title}`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+          className="object-cover object-top transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
         />
-
-        {/* Project number — decorative bg text */}
-        <span className="absolute top-3 right-3 font-heading text-5xl font-extrabold text-white/8 leading-none select-none z-0 pointer-events-none">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-
-        {/* Category badge */}
-        <span className="absolute top-3 left-3 font-body text-[9px] font-semibold uppercase tracking-widest bg-black/60 text-white px-2.5 py-1 rounded-sm z-10">
-          {item.category}
-        </span>
-
-        {/* Dark overlay + action buttons on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-3 gap-2 z-10">
-          {item.Codeurl && (
-            <Link
-              href={item.Codeurl}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()}
-              aria-label="View source code"
-              className="w-9 h-9 rounded-sm bg-secondary border border-border flex items-center justify-center hover:border-border transition-colors"
-            >
-              <Github size={14} className="text-white" />
-            </Link>
-          )}
-          {item.Liveurl && (
-            <Link
-              href={item.Liveurl}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()}
-              aria-label="View live demo"
-              className="w-9 h-9 rounded-sm bg-primary/80 border border-primary/40 flex items-center justify-center hover:bg-primary transition-colors"
-            >
-              <ExternalLink size={14} className="text-white" />
-            </Link>
-          )}
-        </div>
-      </div>
+      </BrowserFrame>
 
       {/* Card body */}
-      <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-heading text-sm font-semibold text-foreground leading-snug mb-2">{item.title}</h3>
+      <div className="px-2 pt-5 pb-2 flex flex-col flex-1">
+        <div className="flex items-center justify-between mb-2">
+          <span className="font-mono text-[11px] text-muted-foreground">
+            {String(index + 1).padStart(2, "0")} · {isAI ? "AI / Chatbot" : "Web"}
+          </span>
+        </div>
+
+        <h3 className="font-heading text-lg font-semibold tracking-tight text-foreground leading-snug mb-2">
+          {item.title}
+        </h3>
 
         {item.description && (
-          <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">
+          <p className="font-body text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">
             {item.description}
           </p>
         )}
 
         {item.tech && item.tech.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
+          <div className="flex flex-wrap gap-1.5 mb-5">
             {item.tech.map((t) => (
               <span
                 key={t}
-                className="font-body text-[10px] font-medium px-2.5 py-1 rounded-sm border border-border bg-secondary text-muted-foreground"
+                className="font-mono text-[10.5px] px-2 py-0.5 rounded-md border border-border bg-secondary/60 text-muted-foreground"
               >
                 {t}
               </span>
             ))}
           </div>
         )}
+
+        {/* Actions pinned to the bottom so they line up across cards */}
+        <div className="mt-auto flex items-center gap-4 pt-4 border-t border-border">
+          {item.Liveurl && (
+            <Link
+              href={item.Liveurl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-body text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              {isAI ? "Watch demo" : "Visit site"}
+              <ArrowUpRight size={14} />
+            </Link>
+          )}
+          {item.Codeurl && (
+            <Link
+              href={item.Codeurl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-body text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Github size={14} />
+              Source
+            </Link>
+          )}
+        </div>
       </div>
-    </motion.div>
+    </motion.article>
   )
 }

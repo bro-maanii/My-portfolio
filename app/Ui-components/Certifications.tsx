@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SectionHeading, Accent } from "@/components/section-heading";
 import { GraduationCap, Shield, Code2, Terminal, Network, Database, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
@@ -59,24 +60,16 @@ const certifications = [
 export default function Certifications() {
   return (
     <section
-      className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden"
+      className="py-14 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden"
       id="certifications"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-12"
-      >
-        <span className="section-label">Credentials</span>
-        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">Certifications</h2>
-        <p className="font-body text-sm text-muted-foreground mt-3">
-          Verified credentials from world-class institutions click any card to view the certificate.
-        </p>
-      </motion.div>
+      <SectionHeading
+        label="Credentials"
+        title={<>Certifications</>}
+        description="Verified courses from universities and training providers. Click any card to open the certificate."
+      />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr gap-4">
         {certifications.map((cert, index) => {
           const Icon = cert.icon;
           return (
@@ -92,10 +85,10 @@ export default function Certifications() {
                 href={cert.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full items-start gap-4 p-5 bg-card border border-border hover:border-primary/40 rounded-sm transition-all duration-300"
+                className="spotlight group flex h-full items-start gap-4 p-5 bg-card border border-border rounded-2xl shadow-soft hover:-translate-y-0.5 transition-transform duration-300"
               >
                 {/* Icon */}
-                <div className="p-2.5 rounded-sm border border-border bg-secondary text-primary shrink-0 group-hover:border-primary/30 group-hover:bg-primary/10 transition-colors">
+                <div className="p-2.5 rounded-lg border border-border bg-secondary text-primary shrink-0 group-hover:border-primary/30 group-hover:bg-primary/10 transition-colors">
                   <Icon size={18} />
                 </div>
 
@@ -107,7 +100,7 @@ export default function Certifications() {
                   <p className="font-body text-xs text-muted-foreground mb-2">
                     {cert.org}
                   </p>
-                  <span className="font-body mt-auto self-start text-[10px] px-2.5 py-0.5 rounded-sm bg-secondary border border-border text-muted-foreground">
+                  <span className="font-body mt-auto self-start text-[10px] px-2.5 py-0.5 rounded-lg bg-secondary border border-border text-muted-foreground">
                     {cert.platform}
                   </span>
                 </div>

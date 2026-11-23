@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SectionHeading, Accent } from "@/components/section-heading";
 import { Play, X, Volume2, VolumeX, Sparkles } from "lucide-react";
 
 const ads = [
@@ -84,25 +85,14 @@ export default function UGCAds() {
   }
 
   return (
-    <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+    <section className="py-14 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
 
       {/* Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-12"
-      >
-        <span className="section-label">UGC Ads</span>
-        <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground">AI-Generated Ads</h2>
-        <div className="flex items-center gap-2 mt-3">
-          <Sparkles size={13} className="text-primary shrink-0" />
-          <p className="font-body text-sm text-muted-foreground">
-            Script, voiceover, scenes, and editing all made with AI tools.
-          </p>
-        </div>
-      </motion.div>
+      <SectionHeading
+        label="UGC ads"
+        title={<>AI‑generated <Accent>ads</Accent></>}
+        description="Script, voiceover, scenes and editing, all produced with AI tools. Click a card to watch with sound."
+      />
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -114,43 +104,44 @@ export default function UGCAds() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => openModal(ad)}
-            className="group text-left bg-card border border-border hover:border-primary/30 rounded-sm overflow-hidden transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="spotlight group text-left bg-card border border-border rounded-2xl shadow-soft p-2 hover:-translate-y-1 hover:shadow-lifted transition-[transform,box-shadow] duration-500"
           >
             {/* Video preview (muted autoplay loop as thumbnail) */}
-            <div className="relative h-52 overflow-hidden bg-background">
+            <div className="relative aspect-[9/14] overflow-hidden rounded-xl bg-black">
               <video
                 src={ad.video}
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-300"
+                className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
               />
               {/* Play overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-11 h-11 rounded-sm bg-primary/80 border border-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
-                  <Play size={16} className="text-white ml-0.5" fill="white" />
+                <div className="w-14 h-14 rounded-full bg-white/20 border border-white/30 flex items-center justify-center backdrop-blur-md scale-90 opacity-80 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300">
+                  <Play size={18} className="text-white ml-0.5" fill="white" />
                 </div>
               </div>
               {/* Category badge */}
-              <span className="absolute top-3 left-3 font-body text-[9px] font-semibold uppercase tracking-widest bg-black/60 text-white px-2.5 py-1 rounded-sm backdrop-blur-sm">
+              <span className="absolute top-3 left-3 font-mono text-[10px] bg-black/50 text-white px-2.5 py-1 rounded-full backdrop-blur-md border border-white/10">
                 {ad.category}
               </span>
             </div>
 
             {/* Card body */}
-            <div className="p-4">
-              <h3 className="font-heading text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+            <div className="px-2.5 pt-4 pb-3">
+              <h3 className="font-heading text-base font-semibold tracking-tight text-foreground mb-1.5 group-hover:text-primary transition-colors">
                 {ad.brand}
               </h3>
-              <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">
-                {ad.hook}
+              <p className="font-serif italic text-[15px] text-muted-foreground leading-snug line-clamp-2 mb-3">
+                &ldquo;{ad.hook}&rdquo;
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {ad.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-body text-[10px] font-medium px-2 py-0.5 rounded-sm border border-border bg-secondary text-muted-foreground"
+                    className="font-body text-[10px] font-medium px-2 py-0.5 rounded-lg border border-border bg-secondary text-muted-foreground"
                   >
                     {tag}
                   </span>
@@ -169,7 +160,7 @@ export default function UGCAds() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             onClick={closeModal}
           >
             <motion.div
@@ -178,12 +169,12 @@ export default function UGCAds() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl bg-card border border-border rounded-sm overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+              className="relative w-full max-w-4xl bg-card border border-border rounded-3xl shadow-lifted overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
             >
               {/* Close button */}
               <button
                 onClick={closeModal}
-                className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-sm bg-black/60 text-muted-foreground hover:text-foreground hover:bg-black/80 transition-colors backdrop-blur-sm"
+                className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-lg bg-black/60 text-muted-foreground hover:text-foreground hover:bg-black/80 transition-colors backdrop-blur-sm"
                 aria-label="Close"
               >
                 <X size={15} />
@@ -204,7 +195,7 @@ export default function UGCAds() {
                 {/* Mute toggle */}
                 <button
                   onClick={() => setMuted((m) => !m)}
-                  className="absolute bottom-3 right-3 w-8 h-8 flex items-center justify-center rounded-sm bg-black/60 text-white hover:bg-black/80 transition-colors backdrop-blur-sm"
+                  className="absolute bottom-3 right-3 w-8 h-8 flex items-center justify-center rounded-lg bg-black/60 text-white hover:bg-black/80 transition-colors backdrop-blur-sm"
                   aria-label={muted ? "Unmute" : "Mute"}
                 >
                   {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
@@ -213,11 +204,11 @@ export default function UGCAds() {
 
               {/* Script panel */}
               <div className="flex-1 p-6 overflow-y-auto">
-                <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-primary">{active.category}</span>
+                <span className="font-mono text-[11px] text-primary">{active.category}</span>
                 <h3 className="font-heading text-lg font-bold text-foreground mt-1 mb-1">{active.brand}</h3>
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {active.tags.map((tag) => (
-                    <span key={tag} className="font-body text-[10px] px-2 py-0.5 rounded-sm border border-border bg-secondary text-muted-foreground">
+                    <span key={tag} className="font-body text-[10px] px-2 py-0.5 rounded-lg border border-border bg-secondary text-muted-foreground">
                       {tag}
                     </span>
                   ))}
@@ -225,10 +216,10 @@ export default function UGCAds() {
 
                 {active.script.length > 0 ? (
                   <div className="space-y-4">
-                    <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-3">Ad Script</p>
+                    <p className="font-mono text-[12px] font-medium text-muted-foreground mb-3">Ad Script</p>
                     {active.script.map((line, i) => (
                       <div key={i} className="flex gap-3">
-                        <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-primary shrink-0 pt-0.5 min-w-[56px]">
+                        <span className="font-mono text-[11px] text-primary shrink-0 pt-0.5 min-w-[56px]">
                           {line.label}
                         </span>
                         <p className="font-body text-sm text-muted-foreground leading-relaxed">
@@ -238,7 +229,7 @@ export default function UGCAds() {
                     ))}
                   </div>
                 ) : (
-                  <div className="flex items-center gap-2 mt-4 p-4 bg-secondary border border-border rounded-sm">
+                  <div className="flex items-center gap-2 mt-4 p-4 bg-secondary border border-border rounded-lg">
                     <Sparkles size={13} className="text-primary shrink-0" />
                     <p className="font-body text-sm text-muted-foreground italic">
                       Pure cinematic visuals no voiceover. Scene direction and editing entirely AI-generated.
