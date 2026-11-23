@@ -7,21 +7,69 @@ import { TabSystem } from "@/components/tab-system";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
-/* ── Featured project (DiaCare) ───────────────────────────────── */
+/* ── Featured project (Career Pipeline) ───────────────────────── */
 const featured = {
-  title:       "DiaCare — AI-Powered Diabetes Management",
+  title:       "Career Pipeline — Job Search Tracker SaaS",
   category:    "WEB DEV",
-  image:       "/ProjectsImages/Diacare_web.png",
-  liveUrl:     "https://diabetescaresystem.vercel.app/",
+  image:       "/ProjectsImages/CareerPipeline_web.png",
+  liveUrl:     "https://career-pipeline-tan.vercel.app",
+  codeUrl:     "https://github.com/bro-maanii/career-pipeline",
   description:
-    "End-to-end health management platform where users track blood glucose, manage medications, and receive AI-personalised diet and exercise plans. Built an AI chatbot and automated health report generator with Python + FastAPI, real-time glucose trend visualisations, and a 3-month longitudinal audit. Containerised with Docker and deployed on AWS.",
-  tech: ["Python", "FastAPI", "React.js", "MongoDB", "Docker", "AWS"],
+    "Multi-tenant job-search workspace where every account gets its own private tracker — applications, outreach contacts, interview notes, daily targets, follow-up queues, editable message templates and funnel/source reporting. Supabase Auth with owner-only Postgres row-level security, CSV/Excel import, a GSAP-animated landing page and a 22-step guided tutorial in English and Roman Urdu.",
+  tech: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "GSAP"],
 };
 
 /* ── Remaining projects ────────────────────────────────────────── */
 const portfolioItems = [
+  {
+    id: 13,
+    title: "DiaCare — AI-Powered Diabetes Management",
+    category: "WEB DEV",
+    image: "/ProjectsImages/Diacare_web.png",
+    Liveurl: "https://diabetescaresystem.vercel.app/",
+    description: "Health platform to track blood glucose and medications, with AI-personalised diet and exercise plans, an AI chatbot and automated health reports. Dockerised and deployed on AWS.",
+    tech: ["Python", "FastAPI", "React.js", "MongoDB", "Docker", "AWS"],
+  },
+  {
+    id: 17,
+    title: "OFFRAIL — Interactive 3D Fashion Store",
+    category: "WEB DEV",
+    image: "/ProjectsImages/Offrail_web.png",
+    Liveurl: "https://offrail-beta.vercel.app/",
+    description: "Immersive 3D storefront with a draggable clothing rack powered by custom cloth physics in a Web Worker — grab the fabric and garments swing realistically. Includes an illuminated shoe wall, GLB product viewer with rotate and zoom, size guide, sound and shopping bag.",
+    tech: ["Next.js", "TypeScript", "Three.js", "React Three Fiber", "Web Workers"],
+  },
+  {
+    id: 14,
+    title: "QuoteSnap AI",
+    category: "WEB DEV",
+    image: "/ProjectsImages/QuoteSnap_web.png",
+    Liveurl: "https://quotesnap-ai.onrender.com/",
+    description: "AI invoicing SaaS for freelancers and small businesses — record a quick voice note in English, Urdu or Roman Urdu and get a polished, professional invoice draft to review, personalise and download as a PDF.",
+    tech: ["Next.js", "TypeScript", "AI", "Speech-to-Text", "PDF Generation"],
+  },
+  {
+    id: 15,
+    title: "Roam — Travel Agency Website",
+    category: "WEB DEV",
+    image: "/ProjectsImages/RoamTravel_web.png",
+    Codeurl: "https://github.com/bro-maanii/roam-travel-nextjs",
+    Liveurl: "https://roam-travel-nextjs.vercel.app",
+    description: "Editorial travel agency site with working flight, hotel, visa and car-rental search forms, destination filters, a validated contact form with email delivery, GSAP ScrollTrigger animations, full SEO and accessibility support.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Playwright"],
+  },
+  {
+    id: 16,
+    title: "ShopDash — E-Store",
+    category: "WEB DEV",
+    image: "/ProjectsImages/EStore_web.png",
+    Codeurl: "https://github.com/bro-maanii/my-store",
+    Liveurl: "https://my-store-sepia-three.vercel.app/",
+    description: "Responsive product catalog and cart with real-time search, category filters, product detail dialogs, a Redux-powered cart with live totals and a wishlist view. Includes loading skeletons, retryable errors and accessible keyboard-friendly UI.",
+    tech: ["Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Vitest"],
+  },
   {
     id: 11,
     title: "AI Job Assistant",
@@ -221,11 +269,17 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-              <div>
+              <div className="flex flex-wrap gap-3">
                 <Link href={featured.liveUrl} target="_blank">
                   <Button className="font-body gap-2 bg-primary hover:bg-primary/90 text-white rounded-sm shadow-lg shadow-primary/20 text-sm font-medium">
                     <ExternalLink size={13} />
                     Live Demo
+                  </Button>
+                </Link>
+                <Link href={featured.codeUrl} target="_blank">
+                  <Button variant="outline" className="font-body gap-2 rounded-sm text-sm font-medium">
+                    <Github size={13} />
+                    Code
                   </Button>
                 </Link>
               </div>
