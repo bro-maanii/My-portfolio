@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://emanaliabbasi.vercel.app"),
   title: "Eman Ali Abbasi — Software Engineer & Full-Stack Developer",
   description:
-    "Software Engineer building AI-powered SaaS and full-stack web apps with React, Next.js, TypeScript and Node.js. Currently at SOCByte, Karachi.",
+    "Software Engineer in Karachi building AI-powered SaaS and full-stack web apps with React, Next.js, TypeScript and Node.js. Explore my projects and CV.",
   alternates: {
     canonical: "/",
   },
@@ -42,14 +42,14 @@ export const metadata: Metadata = {
     url: "/",
     title: "Eman Ali Abbasi — Software Engineer & Full-Stack Developer",
     description:
-      "Software Engineer specializing in React.js, Next.js, TypeScript, and full-stack development. Building production-grade platforms at SOCByte.",
+      "Full-stack engineer building AI-powered SaaS and web apps people enjoy using. React, Next.js, TypeScript and Node.js. Currently at SOCByte, Karachi.",
     siteName: "Eman Ali Abbasi Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png?v=2",
         width: 1200,
         height: 630,
-        alt: "Eman Ali Abbasi — Software Engineer building AI-powered SaaS and full-stack web apps",
+        alt: "Eman Ali Abbasi — Full-stack engineer building products people enjoy using, shown beside Career Pipeline, DiaCare and OFFRAIL project screenshots",
       },
     ],
   },
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Eman Ali Abbasi — Software Engineer",
     description:
-      "Software Engineer building AI-powered SaaS and full-stack web apps with React, Next.js, TypeScript and Node.js.",
-    images: ["/og-image.png"],
+      "Software Engineer building AI-powered SaaS and full-stack web apps with React, Next.js, TypeScript and Node.js. See my projects, experience and CV.",
+    images: ["/og-image.png?v=2"],
   },
 };
 
